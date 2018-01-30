@@ -1,6 +1,6 @@
 import React { Component } from 'react';
 
-class UserLoginPage extends Component {
+class UserSignUpPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -25,7 +25,7 @@ class UserLoginPage extends Component {
     e.preventDefault();
     axios({
       method: 'POST',
-      url: '/auth/login',
+      url: '/auth/register',
       data: {
         email: this.state.email,
         username: this.state.username,
@@ -48,20 +48,23 @@ class UserLoginPage extends Component {
     console.log(this.state)
     return (
       <div className='form'>
-      {(this.state.loggedInName) ? <h1>Welcome, {this.state.loggedInName}</h1> : <h1>Please Log In</h1>}
+      <h1>Welcome Please Sign Up</h1>
         <form onSubmit={this.handleSubmit}>
         <label />
-          username
-          <input type='text' onChange={this.handleChange} name='username' placeholder='write your username here' />
+          Email
+          <input type='text' onChange={this.handleChange} name='email' placeholder='write your Email here' />
         <label />
-          password
-          <input type='text' onChange={this.handleChange} name='password' placeholder='write your password here' />
+          Username
+          <input type='text' onChange={this.handleChange} name='username' placeholder='write your Username here' />
+        <label />
+          Password
+          <input type='text' onChange={this.handleChange} name='password' placeholder='write your Password here' />
         <br />
-          <input type='submit' value='get em done' />
+          <input type='submit' value='Submit' />
         </form>
       </div>
       )
   }
 }
 
-export default UserLoginPage;
+export default UserSignUpPage;
