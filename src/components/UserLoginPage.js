@@ -1,6 +1,6 @@
 import React from 'react';
 
-class User extends Component {
+class UserLoginPage extends Component {
   constructor() {
     super();
     this.state = {
@@ -50,8 +50,13 @@ class User extends Component {
       <div className='form'>
       {(this.state.loggedInName) ? <h1>Welcome, {this.state.loggedInName}</h1> : <h1>Please Log In</h1>}
         <form onSubmit={this.handleSubmit}>
-          <input type='text' onChange={this.handleChange} name='username' placeholder='write your name here' />
+        <label />
+          username
+          <input type='text' onChange={this.handleChange} name='username' placeholder='write your username here' />
+        <label />
+          password
           <input type='text' onChange={this.handleChange} name='password' placeholder='write your password here' />
+        <br />
           <input type='submit' value='get em done' />
         </form>
       </div>
@@ -59,4 +64,4 @@ class User extends Component {
   }
 }
 
-export default User;
+export default UserLoginPage;
