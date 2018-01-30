@@ -8,6 +8,7 @@ class FavMovieEditForm extends Component {
   constructor() {
     super();
     this.state = {
+      title: '',
       imdb_id: '',
       overview: '',
       poster_path: '',
@@ -20,29 +21,20 @@ class FavMovieEditForm extends Component {
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-CREATE TABLE IF NOT EXISTS movies (
- id BIGSERIAL PRIMARY KEY,
- imdb_id INTEGER,
- overview TEXT,
- poster_path TEXT,
- runtime INTEGER,
- tagline TEXT,
- genres TEXT,
- user_id INTEGER REFERENCES users(id)
-)
-
 
   componentDidMount() {
-    axios.get(`/icecream/${this.props.match.params.id}`)
+    axios.get(`/favorites/${this.props.match.params.id}`)
       .then((res) => {
         console.log(res);
-        const iceCream = res.data.data;
+        const favMovies = res.data.data;
         this.setState({
-          flavor: iceCream.flavor,
-          desc: iceCream.description,
-          rating: iceCream.rating,
-          brand: iceCream.brand,
-          url: iceCream.url,
+          title: fav,
+          imdb_id: '',
+          overview: '',
+          poster_path: '',
+          runtime: '',
+          tagline: '',
+          genres: '',
         })
       }).catch(err => console.log(err));
   }
@@ -58,12 +50,14 @@ CREATE TABLE IF NOT EXISTS movies (
   handleFormSubmit(e) {
     e.preventDefault();
     axios
-      .put(`/icecream/${this.props.match.params.id}`, {
-        flavor: this.state.flavor,
-        description: this.state.desc,
-        rating: this.state.rating,
-        brand: this.state.brand,
-        url: this.state.url,
+      .put(`/movies/${this.props.match.params.id}`, {
+        title: this.state.title,
+        imdb_id: this.state.imdb_id,
+        overview: this.state.overview,
+        poster_path: this.state.poster_path,
+        runtime: this.state.runtime,
+        tagline: this.state.tagline,
+        genres: this.state.genres,
       })
       .then(res => {
         console.log(res);
@@ -81,52 +75,72 @@ CREATE TABLE IF NOT EXISTS movies (
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
           <label>
-            Flavor
+            Title
             <input
               type="text"
-              placeholder="Flavor"
-              name="flavor"
-              value={this.state.flavor}
+              placeholder="Title"
+              name="title"
+              value={this.state.title}
               onChange={this.handleInputChange}
             />
           </label>
           <label>
-            Description
+            IMDB id
             <input
               type="text"
-              placeholder="Description"
-              name="desc"
-              value={this.state.desc}
+              placeholder="IMDB id"
+              name="imdb_id"
+              value={this.state.imdb_id}
               onChange={this.handleInputChange}
             />
           </label>
           <label>
-            Rating
+            Overview
+            <input
+              type="text"
+              placeholder="Overview"
+              name="overview"
+              value={this.state.overview}
+              onChange={this.handleInputChange}
+            />
+          </label>
+          <label>
+            Poster url
+            <input
+              type="text"
+              placeholder="Poster url"
+              name="poster_path"
+              value={this.state.poster_path}
+              onChange={this.handleInputChange}
+            />
+          </label>
+          <label>
+            Runtime
             <input
               type="number"
-              placeholder="Rating"
-              name="rating"
-              value={this.state.description}
+              placeholder="Runtime"
+              name="runtime"
+              value={this.state.runtime}
               onChange={this.handleInputChange}
             />
           </label>
           <label>
-            Brand
+            Tagline
             <input
               type="text"
-              placeholder="Brand"
-              name="brand"
-              value={this.state.brand}
+              placeholder="Tagline"
+              name="tagline"
+              value={this.state.tagline}
               onChange={this.handleInputChange}
             />
           </label>
           <label>
-            URL
+            Genres
             <input
               type="text"
-              placeholder="URL"
-              name="url"
-              value={this.state.url}
+              placeholder="Genres"
+              name="genres"
+              value={this.state.genres}
               onChange={this.handleInputChange}
             />
           </label>

@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
   res.sendFile(path.join(__dirname + '/index.html'))
 });
 
-// app.use('/people', require('./routes/people-routes'))
+app.use('/favorites', require('./routes/movie-routes'))
 
 app.listen(PORT, () => {
   console.log(`check us out on PORT ${PORT}`)
