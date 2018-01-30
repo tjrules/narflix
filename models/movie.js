@@ -3,12 +3,12 @@ const db = require('../db/config');
 const Movie = {};
 
 Movie.findAll = id => {
-  return db.query(`SELECT *, goals.id FROM goals JOIN users ON goals.user_id = users.id WHERE goals.user_id = $1`, id)
+  return db.query(`SELECT *, movies.id FROM movies JOIN users ON movies.user_id = users.id WHERE movies.user_id = $1`, id)
 };
 
 
 Movie.findById = id => {
-  return db.oneOrNone(`SELECT * FROM goals WHERE id = $1`, [id])
+  return db.oneOrNone(`SELECT * FROM movies WHERE id = $1`, [id])
 };
 
 Movie.create = (movies) => {
@@ -16,10 +16,10 @@ Movie.create = (movies) => {
   return db.one(
     `
       INSERT INTO movies
-      (imdb_id, overview, poster_path, runtime, tagline, genres, user_id)
-      VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *
+      (title, imdb_id, overview, poster_path, runtime, tagline, genres, user_id)
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *
     `,
-    movies.imdb_id, movies.overview, movies.poster_path, movies.runtime, movies.tagline, movies.genres, movies.user_id]
+    movies.title, movies.imdb_id, movies.overview, movies.poster_path, movies.runtime, movies.tagline, movies.genres, movies.user_id]
   );
 };
 
@@ -29,14 +29,16 @@ Movie.update = (goals, id) => {
   return db.none(
   `
     UPDATE movies SET
-    description = $1,
-    step1 = $2,
-    step2 = $3,
-    step3 = $4,
-    step4 = $5
-    WHERE id = $6
+    title = $1,
+    imdb_id = $2,
+    overview = $3,
+    poster_path = $4,
+    runtime = $5,
+    tagline = $6,
+    genres = $7
+    WHERE id = $8
   `,
-  [goals.description, goals.step1, goals.step2, goals.step3, goals.step4, id]
+  [movies.title, movies.imdb_id, movies.overview, movies.poster_path, movies.runtime, movies.tagline, movies.genres, movies.user_id]
     );
 };
 
