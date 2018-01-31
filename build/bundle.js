@@ -14111,11 +14111,9 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 /***/ }),
 /* 83 */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-//header
-
+throw new Error("Module build failed: SyntaxError: Unexpected token, expected ; (5:10)\n\n\u001b[0m \u001b[90m 3 | \u001b[39m\n \u001b[90m 4 | \u001b[39m\u001b[36mconst\u001b[39m \u001b[33mHeader\u001b[39m \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 | \u001b[39m  render(){\n \u001b[90m   | \u001b[39m          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 | \u001b[39m    \u001b[36mreturn\u001b[39m(\n \u001b[90m 7 | \u001b[39m      \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"Header\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 8 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mnav\u001b[39m \u001b[36mclass\u001b[39m\u001b[33m=\u001b[39m\u001b[32m\"navbar navbar-inverse\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
 
 /***/ }),
 /* 84 */
@@ -15269,8 +15267,95 @@ exports.default = Genres;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-//show movie
 
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //show movie
+
+var ShowMovieList = function (_Component) {
+  _inherits(ShowMovieList, _Component);
+
+  function ShowMovieList(props) {
+    _classCallCheck(this, ShowMovieList);
+
+    var _this = _possibleConstructorReturn(this, (ShowMovieList.__proto__ || Object.getPrototypeOf(ShowMovieList)).call(this, props));
+
+    _this.state = {
+      movieList: _this.props.movieList
+    };
+    return _this;
+  }
+
+  _createClass(ShowMovieList, [{
+    key: "renderMovies",
+    value: function renderMovies() {
+      var _this2 = this;
+
+      return this.state.movieList.map(function (movie) {
+        return _react2.default.createElement(
+          "div",
+          { onClick: function onClick() {
+              return _this2.handleClick(movie.id);
+            } },
+          _react2.default.createElement(
+            "div",
+            null,
+            movie.title
+          ),
+          _react2.default.createElement(
+            "div",
+            null,
+            movie.overview
+          ),
+          _react2.default.createElement("img", { src: "http://image.tmdb.org/t/p/w342" + movie.backdrop_path })
+        );
+      });
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(id) {
+      var _this3 = this;
+
+      fetch("https://api.themoviedb.org/3/movie/" + id + "?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US").then(function (data) {
+        return data.json();
+      }).then(function (data) {
+        _this3.setState({
+          movieList: false,
+          movie: data
+        });
+      });
+    }
+  }, {
+    key: "render",
+    value: function render() {
+      return _react2.default.createElement(
+        "div",
+        { className: "ShowMovieList" },
+        this.state.movieList ? this.renderMovies() : "",
+        this.state.movie ? _react2.default.createElement(ShowMovie, { movie: this.state.movie }) : ""
+      );
+    }
+  }]);
+
+  return ShowMovieList;
+}(_react.Component);
+
+exports.default = ShowMovieList;
 
 /***/ })
 /******/ ]);
