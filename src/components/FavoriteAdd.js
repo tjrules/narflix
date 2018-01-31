@@ -1,4 +1,3 @@
-
 import React, {Component} from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
@@ -50,8 +49,7 @@ class FavoriteAdd extends Component {
     return(
       <div className="add">
         <form onSubmit={this.handleFormSubmit}>
-          <label htmlFor="">
-            Title
+          <label>Title</label>
             <input
               type="text"
               placeholder="Title"
@@ -59,9 +57,7 @@ class FavoriteAdd extends Component {
               value={this.state.title}
               onChange={this.handleInputChange}
             />
-          </label>
-          <label htmlFor="">
-            Poster
+          <label>Poster</label>
             <input
               type="text"
               placeholder="Poster URL"
@@ -69,9 +65,7 @@ class FavoriteAdd extends Component {
               value={this.state.poster_path}
               onChange={this.handleInputChange}
             />
-          </label>
-          <label htmlFor="">
-            Overview
+          <label>Overview</label>
             <input
               type="text"
               placeholder="Overview"
@@ -79,9 +73,7 @@ class FavoriteAdd extends Component {
               value={this.state.overview}
               onChange={this.handleInputChange}
             />
-          </label>
-          <label htmlFor="">
-          Tagline
+          <label>Tagline</label>
             <input
               type="text"
               placeholder="Tagline"
@@ -89,9 +81,7 @@ class FavoriteAdd extends Component {
               value={this.state.tagline}
               onChange={this.handleInputChange}
             />
-          </label>
-          <label htmlFor="">
-          Genre
+          <label>Genre</label>
             <input
               type="text"
               placeholder="Genre"
@@ -99,9 +89,7 @@ class FavoriteAdd extends Component {
               value={this.state.genres}
               onChange={this.handleInputChange}
             />
-          </label>
-          <label htmlFor="">
-          Run Time
+          <label>Run Time</label>
             <input
               type="number"
               placeholder="Run Time"
@@ -109,11 +97,11 @@ class FavoriteAdd extends Component {
               value={this.state.runtime}
               onChange={this.handleInputChange}
             />
-          </label>
         </form>
-        {this.state.fireRedirect ? <Redirect to={`/favorite-list/${this.state.newId}`:''} />
 
       </div>
     )
   }
 }
+
+export default FavoriteAdd;
