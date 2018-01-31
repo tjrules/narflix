@@ -18,6 +18,7 @@ moviesController.new = (req, res) => {
 
 moviesController.create = (req, res) => {
   Movie.create({
+      title: req.body.title,
       imdb_id: req.body.imdb_id,
       overview: req.body.overview,
       poster_path: req.body.poster_path,
@@ -61,6 +62,7 @@ moviesController.edit = (req,res) => {
 
 moviesController.update = (req, res) => {
   Movie.update({
+      title: req.body.title,
       imdb_id: req.body.imdb_id,
       overview: req.body.overview,
       poster_path: req.body.poster_path,
