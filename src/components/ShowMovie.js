@@ -1,6 +1,6 @@
 // show movie
 
-import React from 'react';
+import React, {Component} from 'react';
 
 class ShowMovie extends Component {
   render() {
