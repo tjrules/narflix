@@ -3,13 +3,17 @@ const Movie = require('../models/movie');
 const moviesController = {};
 
 moviesController.index = (req, res) => {
-  Movie.findAll(req.user.id)
-  .then(movie => {
-    res.render('movies/', { movies: movie });
-  })
-  .catch(err => {
-    res.status(400).json(err);
-  });
+  Movie.findAll()
+    .then(movies => {
+      res.json({
+        message: 'ok',
+        data: movies,
+      });
+    })
+    .catch(err => {
+      console.log(err);
+      res.status(500).json({ err });
+    });
 };
 
 moviesController.new = (req, res) => {
