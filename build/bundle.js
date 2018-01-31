@@ -8389,10 +8389,6 @@ var _Header = __webpack_require__(55);
 
 var _Header2 = _interopRequireDefault(_Header);
 
-var _Home = __webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module \"./components/Home\""); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
-
-var _Home2 = _interopRequireDefault(_Home);
-
 var _FavoriteAdd = __webpack_require__(56);
 
 var _FavoriteAdd2 = _interopRequireDefault(_FavoriteAdd);
@@ -8452,7 +8448,7 @@ var App = function (_Component) {
             _react2.default.createElement(_reactRouterDom.Route, { path: '/movies/:id', component: _ShowMovie2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/add', component: _FavoriteAdd2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/edit/:id', component: _FavoriteEdit2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Home2.default })
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: Home })
           )
         )
       );
@@ -9523,7 +9519,7 @@ var FavMovieEditForm = function (_Component) {
           ),
           _react2.default.createElement('input', { type: 'submit', value: 'Submit!' })
         ),
-        this.state.fireRedirect ? _react2.default.createElement(_reactRouterDom.Redirect, { push: true, to: '/ice-cream/' + this.state.newId }) : ''
+        this.state.fireRedirect ? _react2.default.createElement(_reactRouterDom.Redirect, { push: true, to: '/favorites/' + this.state.newId }) : ''
       );
     }
   }]);
@@ -9531,8 +9527,7 @@ var FavMovieEditForm = function (_Component) {
   return FavMovieEditForm;
 }(_react.Component);
 
-exports.default = IceCreamEditForm;
-//favorite edit
+exports.default = FavMovieEditForm;
 
 /***/ }),
 /* 58 */
@@ -9559,19 +9554,21 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //genre
 
-var Genre = function (_Component) {
-  _inherits(Genre, _Component);
+var Genres = function (_Component) {
+  _inherits(Genres, _Component);
 
-  function Genre() {
-    _classCallCheck(this, Genre);
+  function Genres() {
+    _classCallCheck(this, Genres);
 
-    var _this = _possibleConstructorReturn(this, (Genre.__proto__ || Object.getPrototypeOf(Genre)).call(this));
+    var _this = _possibleConstructorReturn(this, (Genres.__proto__ || Object.getPrototypeOf(Genres)).call(this));
 
-    _this.state = {};
+    _this.state = {
+      genresList: ""
+    };
     return _this;
   }
 
-  _createClass(Genre, [{
+  _createClass(Genres, [{
     key: "componentDidMount",
     value: function componentDidMount() {
       var _this2 = this;
@@ -9579,17 +9576,27 @@ var Genre = function (_Component) {
       fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US").then(function (data) {
         return data.json();
       }).then(function (data) {
-        console.log(data.genres);
-        var genre = data.genres.map(function (genre) {
+        var genres = data.genres.map(function (genre) {
           return _react2.default.createElement(
             "div",
-            null,
+            { onClick: function onClick() {
+                return _this2.handleClick(genre.id);
+              } },
             genre.name
           );
         });
-        _this2.setState({
-          genreDropdown: genre
-        });
+        _this2.setState({ genresList: genres });
+      });
+    }
+  }, {
+    key: "handleClick",
+    value: function handleClick(id) {
+      var _this3 = this;
+
+      fetch("https://api.themoviedb.org/3/genre/" + id + "/movies?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US").then(function (data) {
+        return data.json();
+      }).then(function (data) {
+        _this3.setState({ genresList: false, movieList: data.results });
       });
     }
   }, {
@@ -9597,16 +9604,17 @@ var Genre = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         "div",
-        { className: "Genre" },
-        this.state.genreDropdown ? this.state.genreDropdown : ""
+        { className: "Genres" },
+        this.state.genresList ? this.state.genresList : "",
+        this.state.movieList ? _react2.default.createElement(ShowMovieList, { movieList: this.state.movieList }) : ""
       );
     }
   }]);
 
-  return Genre;
+  return Genres;
 }(_react.Component);
 
-exports.default = Genre;
+exports.default = Genres;
 
 /***/ }),
 /* 59 */
