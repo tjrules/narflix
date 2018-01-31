@@ -1,6 +1,6 @@
 
 import React, {Component} from 'react';
-import axios, from 'axios';
+import axios from 'axios';
 
 class FavoriteList extends Component {
   constructor() {
@@ -23,14 +23,11 @@ class FavoriteList extends Component {
   renderFavoriteList() {
     if(this.state.apiDataLoaded) {
       return this.state.apiData.map(favorites => {
-        return(
-          //add table data
-        )
+        console.log('this is favorites:')
       })
     }
   }
 render() {
-
   return(
     <div>{this.renderFavoriteList}</div>
     )
@@ -38,4 +35,4 @@ render() {
 
 }
 
-export default FavoriteLIst;
+export default FavoriteList;
