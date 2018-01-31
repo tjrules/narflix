@@ -2,35 +2,47 @@
 
 import React, {Component} from 'react';
 
-class Genre extends Component {
+class Genres extends Component {
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      genresList: ""
+    };
   }
 
   componentDidMount() {
     fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US")
     .then(data => data.json())
     .then(data => {
-      console.log(data.genres);
-      const genre = data.genres.map(genre => {
-        return (<div>
+      const genres = data.genres.map(genre => {
+        return (<div onClick={() => this.handleClick(genre.id)}>
           {genre.name}
         </div>)
       });
-      this.setState({
-        genreDropdown: genre
-      });
+      this.setState({genresList: genres});
     });
   }
 
+  handleClick(id) {
+    fetch(`https://api.themoviedb.org/3/genre/${id}/movies?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US`).then(data => data.json()).then(data => {
+      this.setState({genresList: false, movieList: data.results})
+    })
+  }
+
   render() {
-    return (
-      <div className="Genre">
-        {this.state.genreDropdown ? this.state.genreDropdown : ""}
-      </div>
-    );
+    return (<div className="Genres">
+      {
+        this.state.genresList
+          ? this.state.genresList
+          : ""
+      }
+      {
+        this.state.movieList
+          ? <ShowMovieList movieList={this.state.movieList}/>
+          : ""
+      }
+    </div>);
   }
 }
 
-export default Genre;
+export default Genres;
