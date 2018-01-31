@@ -10011,6 +10011,10 @@ var _ShowMovie = __webpack_require__(108);
 
 var _ShowMovie2 = _interopRequireDefault(_ShowMovie);
 
+var _Home = __webpack_require__(110);
+
+var _Home2 = _interopRequireDefault(_Home);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -10049,7 +10053,8 @@ var App = function (_Component) {
             _react2.default.createElement(_reactRouterDom.Route, { path: '/movies', component: _ShowMovieList2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/movies/:id', component: _ShowMovie2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/add', component: _FavoriteAdd2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/edit/:id', component: _FavoriteEdit2.default })
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/edit/:id', component: _FavoriteEdit2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Home2.default })
           )
         )
       );
@@ -14135,35 +14140,35 @@ var Header = function Header() {
     { className: "Header" },
     _react2.default.createElement(
       "nav",
-      { "class": "navbar navbar-inverse" },
+      { className: "navbar navbar-inverse" },
       _react2.default.createElement(
         "div",
-        { "class": "container-fluid" },
+        { className: "container-fluid" },
         _react2.default.createElement(
           "div",
-          { "class": "navbar-header" },
+          { className: "navbar-header" },
           _react2.default.createElement(
             "button",
-            { type: "button", "class": "navbar-toggle", "data-toggle": "collapse", "data-target": "#myNavbar" },
-            _react2.default.createElement("span", { "class": "icon-bar" }),
-            _react2.default.createElement("span", { "class": "icon-bar" }),
-            _react2.default.createElement("span", { "class": "icon-bar" })
+            { type: "button", className: "navbar-toggle", "data-toggle": "collapse", "data-target": "#myNavbar" },
+            _react2.default.createElement("span", { className: "icon-bar" }),
+            _react2.default.createElement("span", { className: "icon-bar" }),
+            _react2.default.createElement("span", { className: "icon-bar" })
           ),
           _react2.default.createElement(
             "a",
-            { "class": "navbar-brand", href: "#" },
+            { className: "navbar-brand", href: "#" },
             "Narflix"
           )
         ),
         _react2.default.createElement(
           "div",
-          { "class": "collapse navbar-collapse", id: "myNavbar" },
+          { className: "collapse navbar-collapse", id: "myNavbar" },
           _react2.default.createElement(
             "ul",
-            { "class": "nav navbar-nav" },
+            { className: "nav navbar-nav" },
             _react2.default.createElement(
               "li",
-              { "class": "active" },
+              { className: "active" },
               _react2.default.createElement(
                 "a",
                 { href: "#" },
@@ -14191,14 +14196,14 @@ var Header = function Header() {
           ),
           _react2.default.createElement(
             "ul",
-            { "class": "nav navbar-nav navbar-right" },
+            { className: "nav navbar-nav navbar-right" },
             _react2.default.createElement(
               "li",
               null,
               _react2.default.createElement(
                 "a",
                 { href: "#" },
-                _react2.default.createElement("span", { "class": "glyphicon glyphicon-user" }),
+                _react2.default.createElement("span", { className: "glyphicon glyphicon-user" }),
                 " Sign Up"
               )
             ),
@@ -14208,7 +14213,7 @@ var Header = function Header() {
               _react2.default.createElement(
                 "a",
                 { href: "#" },
-                _react2.default.createElement("span", { "class": "glyphicon glyphicon-log-in" }),
+                _react2.default.createElement("span", { className: "glyphicon glyphicon-log-in" }),
                 " Login"
               )
             )
@@ -15796,6 +15801,65 @@ var FavoriteList = function (_Component) {
 }(_react.Component);
 
 exports.default = FavoriteList;
+
+/***/ }),
+/* 110 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Header = __webpack_require__(83);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Home = function (_React$Component) {
+  _inherits(Home, _React$Component);
+
+  function Home() {
+    _classCallCheck(this, Home);
+
+    return _possibleConstructorReturn(this, (Home.__proto__ || Object.getPrototypeOf(Home)).apply(this, arguments));
+  }
+
+  _createClass(Home, [{
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(
+          'h2',
+          null,
+          'this is the Home Component, we will be rendering Genres here'
+        )
+      );
+    }
+  }]);
+
+  return Home;
+}(_react2.default.Component);
+
+exports.default = Home;
 
 /***/ })
 /******/ ]);
