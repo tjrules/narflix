@@ -147,12 +147,12 @@ class FavMovieEditForm extends Component {
           <input type="submit" value="Submit!" />
         </form>
         {this.state.fireRedirect
-          ? <Redirect push to={`/ice-cream/${this.state.newId}`} />
+          ? <Redirect push to={`/favorites/${this.state.newId}`} />
           : ''}
       </div>
     );
   }
 }
 
-export default IceCreamEditForm;
-//favorite edit
+export default FavMovieEditForm;
+
