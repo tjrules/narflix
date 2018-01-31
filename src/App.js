@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 import Header from './components/Header';
-import Home from './components/Home';
 import FavoriteAdd from './components/FavoriteAdd';
 import FavoriteEdit from './components/FavoriteEdit';
 import Genre from './components/Genre';
