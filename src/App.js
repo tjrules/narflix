@@ -8,6 +8,8 @@ import FavoriteEdit from './components/FavoriteEdit';
 import Genre from './components/Genre';
 import ShowMovieList from './components/ShowMovieList';
 import ShowMovie from './components/ShowMovie';
+import Home from './components/Home';
+
 
 
 class App extends Component {
@@ -22,6 +24,7 @@ class App extends Component {
           <Route path='/movies/:id' component={ShowMovie} />
           <Route path='/add' component={FavoriteAdd}/>
           <Route path='/edit/:id' component={FavoriteEdit}/>
+          <Route path='/' component={Home}/>
         </Switch>
       </div>
   </Router>
