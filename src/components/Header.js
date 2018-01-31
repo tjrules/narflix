@@ -2,7 +2,6 @@
 import React from 'react';
 
 const Header = () => {
-  render(){
     return(
       <div className="Header">
         <nav class="navbar navbar-inverse">
@@ -30,7 +29,6 @@ const Header = () => {
 </nav>
       </div>
     )
-  }
 }
 
 export default Header;

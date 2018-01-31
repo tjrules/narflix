@@ -9991,6 +9991,10 @@ var _FavoriteAdd = __webpack_require__(84);
 
 var _FavoriteAdd2 = _interopRequireDefault(_FavoriteAdd);
 
+var _FavoriteList = __webpack_require__(109);
+
+var _FavoriteList2 = _interopRequireDefault(_FavoriteList);
+
 var _FavoriteEdit = __webpack_require__(85);
 
 var _FavoriteEdit2 = _interopRequireDefault(_FavoriteEdit);
@@ -10034,19 +10038,18 @@ var App = function (_Component) {
           'div',
           { className: 'App' },
           _react2.default.createElement(
-            'h1',
-            { className: 'header' },
-            'Nar-Flix'
+            'h2',
+            null,
+            'WHere is all my shit? '
           ),
           _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/my-favorites', component: FavoriteList }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/movies', component: MovieList }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/my-favorites', component: _FavoriteList2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/movies', component: _ShowMovieList2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/movies/:id', component: _ShowMovie2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/add', component: _FavoriteAdd2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/edit/:id', component: _FavoriteEdit2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: Home })
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/edit/:id', component: _FavoriteEdit2.default })
           )
         )
       );
@@ -14111,15 +14114,290 @@ module.exports = function hoistNonReactStatics(targetComponent, sourceComponent,
 
 /***/ }),
 /* 83 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected ; (5:10)\n\n\u001b[0m \u001b[90m 3 | \u001b[39m\n \u001b[90m 4 | \u001b[39m\u001b[36mconst\u001b[39m \u001b[33mHeader\u001b[39m \u001b[33m=\u001b[39m () \u001b[33m=>\u001b[39m {\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 5 | \u001b[39m  render(){\n \u001b[90m   | \u001b[39m          \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 6 | \u001b[39m    \u001b[36mreturn\u001b[39m(\n \u001b[90m 7 | \u001b[39m      \u001b[33m<\u001b[39m\u001b[33mdiv\u001b[39m className\u001b[33m=\u001b[39m\u001b[32m\"Header\"\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 8 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33mnav\u001b[39m \u001b[36mclass\u001b[39m\u001b[33m=\u001b[39m\u001b[32m\"navbar navbar-inverse\"\u001b[39m\u001b[33m>\u001b[39m\u001b[0m\n");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var Header = function Header() {
+  return _react2.default.createElement(
+    "div",
+    { className: "Header" },
+    _react2.default.createElement(
+      "nav",
+      { "class": "navbar navbar-inverse" },
+      _react2.default.createElement(
+        "div",
+        { "class": "container-fluid" },
+        _react2.default.createElement(
+          "div",
+          { "class": "navbar-header" },
+          _react2.default.createElement(
+            "button",
+            { type: "button", "class": "navbar-toggle", "data-toggle": "collapse", "data-target": "#myNavbar" },
+            _react2.default.createElement("span", { "class": "icon-bar" }),
+            _react2.default.createElement("span", { "class": "icon-bar" }),
+            _react2.default.createElement("span", { "class": "icon-bar" })
+          ),
+          _react2.default.createElement(
+            "a",
+            { "class": "navbar-brand", href: "#" },
+            "Narflix"
+          )
+        ),
+        _react2.default.createElement(
+          "div",
+          { "class": "collapse navbar-collapse", id: "myNavbar" },
+          _react2.default.createElement(
+            "ul",
+            { "class": "nav navbar-nav" },
+            _react2.default.createElement(
+              "li",
+              { "class": "active" },
+              _react2.default.createElement(
+                "a",
+                { href: "#" },
+                "My Watch List"
+              )
+            ),
+            _react2.default.createElement(
+              "li",
+              null,
+              _react2.default.createElement(
+                "a",
+                { href: "#" },
+                "Browse by Genre"
+              )
+            ),
+            _react2.default.createElement(
+              "li",
+              null,
+              _react2.default.createElement(
+                "a",
+                { href: "#" },
+                "About Coolest Group"
+              )
+            )
+          ),
+          _react2.default.createElement(
+            "ul",
+            { "class": "nav navbar-nav navbar-right" },
+            _react2.default.createElement(
+              "li",
+              null,
+              _react2.default.createElement(
+                "a",
+                { href: "#" },
+                _react2.default.createElement("span", { "class": "glyphicon glyphicon-user" }),
+                " Sign Up"
+              )
+            ),
+            _react2.default.createElement(
+              "li",
+              null,
+              _react2.default.createElement(
+                "a",
+                { href: "#" },
+                _react2.default.createElement("span", { "class": "glyphicon glyphicon-log-in" }),
+                " Login"
+              )
+            )
+          )
+        )
+      )
+    )
+  );
+}; //header
+exports.default = Header;
 
 /***/ }),
 /* 84 */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed: SyntaxError: Unexpected token, expected } (114:85)\n\n\u001b[0m \u001b[90m 112 | \u001b[39m          \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mlabel\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 113 | \u001b[39m        \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mform\u001b[39m\u001b[33m>\u001b[39m\n\u001b[31m\u001b[1m>\u001b[22m\u001b[39m\u001b[90m 114 | \u001b[39m        {\u001b[36mthis\u001b[39m\u001b[33m.\u001b[39mstate\u001b[33m.\u001b[39mfireRedirect \u001b[33m?\u001b[39m \u001b[33m<\u001b[39m\u001b[33mRedirect\u001b[39m to\u001b[33m=\u001b[39m{\u001b[32m`/favorite-list/${this.state.newId}`\u001b[39m\u001b[33m:\u001b[39m\u001b[32m''\u001b[39m} \u001b[33m/\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m     | \u001b[39m                                                                                     \u001b[31m\u001b[1m^\u001b[22m\u001b[39m\n \u001b[90m 115 | \u001b[39m\n \u001b[90m 116 | \u001b[39m      \u001b[33m<\u001b[39m\u001b[33m/\u001b[39m\u001b[33mdiv\u001b[39m\u001b[33m>\u001b[39m\n \u001b[90m 117 | \u001b[39m    )\u001b[0m\n");
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(86);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _reactRouterDom = __webpack_require__(29);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FavoriteAdd = function (_Component) {
+  _inherits(FavoriteAdd, _Component);
+
+  function FavoriteAdd() {
+    _classCallCheck(this, FavoriteAdd);
+
+    var _this = _possibleConstructorReturn(this, (FavoriteAdd.__proto__ || Object.getPrototypeOf(FavoriteAdd)).call(this));
+
+    _this.state = {
+      title: '',
+      poster_path: '',
+      overview: '',
+      tagline: '',
+      genres: '',
+      imdb_id: '',
+      runtime: '',
+      newId: '',
+      fireRedirect: false
+    };
+    _this.handleInputChange = _this.handleInputChange.bind(_this);
+    _this.handleFormSubmit = _this.handleFormSubmit.bind(_this);
+    return _this;
+  }
+
+  _createClass(FavoriteAdd, [{
+    key: 'handleInputChange',
+    value: function handleInputChange(e) {
+      var name = e.target.name;
+      var value = e.target.value;
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: 'handleFormSubmit',
+    value: function handleFormSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      _axios2.default.post('/narflixdb', {
+        title: this.state.title,
+        poster_path: this.state.poster_path,
+        overview: this.state.overview,
+        tagline: this.state.tagline,
+        genres: this.state.genres,
+        imdb_id: this.state.imdb_id,
+        runtime: this.state.runtime
+      }).then(function (res) {
+        _this2.setState({
+          newId: res.data.data.id,
+          fireRedirect: true
+        });
+      }).catch(function (err) {
+        return console.log(err);
+      });
+      e.target.reset();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        { className: 'add' },
+        _react2.default.createElement(
+          'form',
+          { onSubmit: this.handleFormSubmit },
+          _react2.default.createElement(
+            'label',
+            null,
+            'Title'
+          ),
+          _react2.default.createElement('input', {
+            type: 'text',
+            placeholder: 'Title',
+            name: 'title',
+            value: this.state.title,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Poster'
+          ),
+          _react2.default.createElement('input', {
+            type: 'text',
+            placeholder: 'Poster URL',
+            name: 'poster_path',
+            value: this.state.poster_path,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Overview'
+          ),
+          _react2.default.createElement('input', {
+            type: 'text',
+            placeholder: 'Overview',
+            name: 'overview',
+            value: this.state.overview,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Tagline'
+          ),
+          _react2.default.createElement('input', {
+            type: 'text',
+            placeholder: 'Tagline',
+            name: 'tagline',
+            value: this.state.tagline,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Genre'
+          ),
+          _react2.default.createElement('input', {
+            type: 'text',
+            placeholder: 'Genre',
+            name: 'genres',
+            value: this.state.genres,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Run Time'
+          ),
+          _react2.default.createElement('input', {
+            type: 'number',
+            placeholder: 'Run Time',
+            name: 'runtime',
+            value: this.state.runtime,
+            onChange: this.handleInputChange
+          })
+        )
+      );
+    }
+  }]);
+
+  return FavoriteAdd;
+}(_react.Component);
+
+exports.default = FavoriteAdd;
 
 /***/ }),
 /* 85 */
@@ -15437,6 +15715,87 @@ var ShowMovie = function (_Component) {
 }(_react.Component);
 
 exports.default = ShowMovie;
+
+/***/ }),
+/* 109 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(86);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var FavoriteList = function (_Component) {
+  _inherits(FavoriteList, _Component);
+
+  function FavoriteList() {
+    _classCallCheck(this, FavoriteList);
+
+    var _this = _possibleConstructorReturn(this, (FavoriteList.__proto__ || Object.getPrototypeOf(FavoriteList)).call(this));
+
+    _this.state = {
+      apiDataLoaded: false,
+      apiData: null
+    };
+    return _this;
+  }
+
+  _createClass(FavoriteList, [{
+    key: 'componentDidMount',
+    value: function componentDidMount() {
+      var _this2 = this;
+
+      _axios2.default.get('/narflixdb').then(function (res) {
+        _this2.setState({
+          apiDataLoaded: true,
+          apiData: res.data.data
+        });
+      });
+    }
+  }, {
+    key: 'renderFavoriteList',
+    value: function renderFavoriteList() {
+      if (this.state.apiDataLoaded) {
+        return this.state.apiData.map(function (favorites) {
+          console.log('this is favorites:');
+        });
+      }
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      return _react2.default.createElement(
+        'div',
+        null,
+        this.renderFavoriteList
+      );
+    }
+  }]);
+
+  return FavoriteList;
+}(_react.Component);
+
+exports.default = FavoriteList;
 
 /***/ })
 /******/ ]);
