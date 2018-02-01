@@ -26,7 +26,7 @@ class UserSignUpPage extends Component {
     e.preventDefault();
     axios({
       method: 'POST',
-      url: '/register',
+      url: '/auth/register',
       data: {
         email: this.state.email,
         username: this.state.username,

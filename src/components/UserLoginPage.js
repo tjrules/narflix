@@ -26,7 +26,7 @@ class UserLoginPage extends Component {
     e.preventDefault();
     axios({
       method: 'POST',
-      url: '/login',
+      url: '/auth/login',
       data: {
         email: this.state.email,
         username: this.state.username,
@@ -37,7 +37,7 @@ class UserLoginPage extends Component {
     .then( person => {
       console.log('got this back', person.data);
       this.setState({
-        loggedInName: person.data.username
+        loggedInName: person.data.username,
       })
     })
     .catch( err => {
@@ -61,7 +61,7 @@ class UserLoginPage extends Component {
           <input type='submit' value='get em done' />
         </form>
       </div>
-      )
+    )
   }
 }
 

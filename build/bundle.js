@@ -15962,7 +15962,7 @@ var UserLoginPage = function (_Component) {
       e.preventDefault();
       (0, _axios2.default)({
         method: 'POST',
-        url: '/login',
+        url: '/auth/login',
         data: {
           email: this.state.email,
           username: this.state.username,
@@ -16081,7 +16081,7 @@ var UserSignUpPage = function (_Component) {
       e.preventDefault();
       (0, _axios2.default)({
         method: 'POST',
-        url: '/register',
+        url: '/auth/register',
         data: {
           email: this.state.email,
           username: this.state.username,
