@@ -1,6 +1,6 @@
 import React from 'react';
-import Header from './Header'
-
+import Header from './Header';
+import Genre from './Genre';
 
 class Home extends React.Component {
   render() {
@@ -8,7 +8,7 @@ class Home extends React.Component {
       <div>
         <Header />
         <h2>this is the Home Component, we will be rendering Genres here</h2>
-
+        <Genre />
       </div>
     )
   }
