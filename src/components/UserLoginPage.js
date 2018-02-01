@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Redirect } from 'react-router-dom';
+import Header from './Header';
 
 class UserLoginPage extends Component {
   constructor() {
@@ -46,14 +47,18 @@ class UserLoginPage extends Component {
     console.log(this.state)
     return (
       <div className='form'>
+      <Header />
       {(this.state.loggedInName) ? <h1>Welcome, {this.state.loggedInName}</h1> : <h1>Please Log In</h1>}
         <form onSubmit={this.handleSubmit}>
-        <label />
+        <label>
           username
-          <input type='text' onChange={this.handleChange} name='username' placeholder='write your username here' />
-        <label />
+          <input type='text' onChange={this.handleChange} name='username' placeholder='write your username' />
+        </label>
+        <br />
+        <label>
           password
-          <input type='text' onChange={this.handleChange} name='password' placeholder='write your password here' />
+          <input type='text' onChange={this.handleChange} name='password' placeholder='write your password' />
+        </label>
         <br />
           <input type='submit' value='get em done' />
         </form>

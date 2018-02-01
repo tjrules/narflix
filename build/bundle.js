@@ -15921,6 +15921,10 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRouterDom = __webpack_require__(29);
 
+var _Header = __webpack_require__(83);
+
+var _Header2 = _interopRequireDefault(_Header);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -15985,6 +15989,7 @@ var UserLoginPage = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'form' },
+        _react2.default.createElement(_Header2.default, null),
         this.state.loggedInName ? _react2.default.createElement(
           'h1',
           null,
@@ -15998,12 +16003,19 @@ var UserLoginPage = function (_Component) {
         _react2.default.createElement(
           'form',
           { onSubmit: this.handleSubmit },
-          _react2.default.createElement('label', null),
-          'username',
-          _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'username', placeholder: 'write your username here' }),
-          _react2.default.createElement('label', null),
-          'password',
-          _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'password', placeholder: 'write your password here' }),
+          _react2.default.createElement(
+            'label',
+            null,
+            'username',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'username', placeholder: 'write your username' })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'label',
+            null,
+            'password',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'password', placeholder: 'write your password' })
+          ),
           _react2.default.createElement('br', null),
           _react2.default.createElement('input', { type: 'submit', value: 'get em done' })
         ),
@@ -16039,6 +16051,10 @@ var _axios = __webpack_require__(86);
 var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRouterDom = __webpack_require__(29);
+
+var _Header = __webpack_require__(83);
+
+var _Header2 = _interopRequireDefault(_Header);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16108,23 +16124,35 @@ var UserSignUpPage = function (_Component) {
       return _react2.default.createElement(
         'div',
         { className: 'form' },
+        _react2.default.createElement(_Header2.default, null),
         _react2.default.createElement(
           'h1',
           null,
-          'Welcome Please Sign Up'
+          'Welcome! Join Narflix Here'
         ),
         _react2.default.createElement(
           'form',
           { onSubmit: this.handleSubmit },
-          _react2.default.createElement('label', null),
-          'Email',
-          _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'email', placeholder: 'write your Email here' }),
-          _react2.default.createElement('label', null),
-          'Username',
-          _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'username', placeholder: 'write your Username here' }),
-          _react2.default.createElement('label', null),
-          'Password',
-          _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'password', placeholder: 'write your Password here' }),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Email',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'email', placeholder: 'write your Email here' })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Username',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'username', placeholder: 'write your Username here' })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Password',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'password', placeholder: 'write your Password here' })
+          ),
           _react2.default.createElement('br', null),
           _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
         ),

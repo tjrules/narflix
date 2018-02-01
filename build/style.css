@@ -34,3 +34,13 @@
   font-weight: 800;
   font-style: italic;
 }
+
+.form {
+  font-family: 'inconsolata', monospace;
+  padding : 2em;
+  margin  : 0;
+  background : lightblue;
+  border-radius: 50px 20px;
+  text-align: center;
+}
+
