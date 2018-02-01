@@ -16,9 +16,10 @@ class Genre extends Component {
     .then(data => data.json())
     .then(data => {
       let divId = 1
-      const genres = data.genres.map(genre => {
+      const genres = data.genres.map((genre, index) => {
         return (
           <div
+            key={index}
             className="genresListItem"
             id={`genre${divId++}`}
             onClick={() => this.handleClick(genre.id)}>
@@ -33,7 +34,6 @@ class Genre extends Component {
     fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${id}&language=en-US`)
     .then(data => data.json())
     .then(data => {
-      console.log('you nailed it. kinda.', data);
       this.setState({
         genresList: false,
         movieList: data.results
