@@ -3010,13 +3010,22 @@ var Header = function Header() {
         { id: 'link2' },
         _react2.default.createElement(
           _reactRouterDom.Link,
+          { to: '/my-favorites' },
+          'Watch List'
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { id: 'link3' },
+        _react2.default.createElement(
+          _reactRouterDom.Link,
           { to: '/login' },
           'Login'
         )
       ),
       _react2.default.createElement(
         'div',
-        { id: 'link3' },
+        { id: 'link4' },
         _react2.default.createElement(
           _reactRouterDom.Link,
           { to: '/register' },
