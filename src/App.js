@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
+import UserLoginPage from './components/UserLoginPage';
+import UserSignUpPage from './components/UserSignUpPage';
 import Header from './components/Header';
 import FavoriteAdd from './components/FavoriteAdd';
 import FavoriteList from './components/FavoriteList';
@@ -12,6 +14,7 @@ import Home from './components/Home';
 
 
 
+
 class App extends Component {
   render(){
     return (
@@ -19,6 +22,8 @@ class App extends Component {
       <div className='App'>
       <h2>WHere is all my shit? </h2>
         <Switch>
+          <Route path='/login' component={UserLoginPage} />
+          <Route path='/register' component={UserSignUpPage} />
           <Route path='/my-favorites' component={FavoriteList} />
           <Route path='/movies' component={ShowMovieList} />
           <Route path='/movies/:id' component={ShowMovie} />
