@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class UserLoginPage extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class UserLoginPage extends Component {
       username: '',
       password: '',
       loggedInName: '',
+      fireRedirect: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -24,26 +26,21 @@ class UserLoginPage extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    axios({
-      method: 'POST',
-      url: '/login',
-      data: {
+    axios.post('/auth/login', {
         email: this.state.email,
         username: this.state.username,
         password: this.state.password,
-
-      }
     })
-    .then( person => {
-      console.log('got this back', person.data);
+    .then( data => {
+      console.log('thennnnnnn');
       this.setState({
-        loggedInName: person.data.username
+        fireRedirect: true
       })
-    })
-    .catch( err => {
-      console.log(err)
-    })
+      })
+    .catch(err => console.log(err))
+    e.target.reset()
   }
+
 
   render() {
     console.log(this.state)
@@ -60,8 +57,9 @@ class UserLoginPage extends Component {
         <br />
           <input type='submit' value='get em done' />
         </form>
+        { this.state.fireRedirect ? <Redirect to='/' /> : '' }
       </div>
-      )
+    )
   }
 }
 

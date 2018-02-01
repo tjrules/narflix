@@ -7,16 +7,12 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return(
       <div className="Header">
-              <header>
-                <div className='logo'>Narflix</div>
-                <nav>
-                  <ul>
-                    <li><Link to='/'>Home</Link></li>
-                    <li><Link to='/login'>Login</Link></li>
-                    <li><Link to='/register'>Sign Up</Link></li>
-                  </ul>
-                </nav>
-            </header>
+        <header>
+          <div className='logo'>Narflix</div>
+          <div id="link1"><Link to='/'>Home</Link></div>
+          <div id="link2"><Link to='/login'>Login</Link></div>
+          <div id="link3"><Link to='/register'>Sign Up</Link></div>
+        </header>
       </div>
     )
 }
