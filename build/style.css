@@ -93,6 +93,17 @@ a:hover {
   font-size: 2vw;
 }
 
+
+.form {
+  font-family: 'inconsolata', monospace;
+  padding : 2em;
+  margin  : 0;
+  background : lightblue;
+  border-radius: 50px 20px;
+  text-align: center;
+}
+
+
 .ShowMovieListItem {
   display: flex;
   justify-content: center;
@@ -126,3 +137,4 @@ img {
 #movie3, #movie7, #movie11, #movie15, #movie19 {grid-column-start: 10;}
 #movie4, #movie8, #movie12, #movie16, #movie20 {grid-column-start: 14;} */
 /*===========================================================================*/
+
