@@ -16038,6 +16038,8 @@ var _axios = __webpack_require__(86);
 
 var _axios2 = _interopRequireDefault(_axios);
 
+var _reactRouterDom = __webpack_require__(29);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -16060,7 +16062,8 @@ var UserSignUpPage = function (_Component) {
       email: '',
       username: '',
       password: '',
-      loggedInName: ''
+      loggedInName: '',
+      fireRedirect: false
     };
     _this.handleSubmit = _this.handleSubmit.bind(_this);
     _this.handleChange = _this.handleChange.bind(_this);
@@ -16092,7 +16095,7 @@ var UserSignUpPage = function (_Component) {
       }).then(function (person) {
         console.log('got this back', person.data);
         _this2.setState({
-          loggedInName: person.data.username
+          fireRedirect: true
         });
       }).catch(function (err) {
         console.log(err);
@@ -16124,7 +16127,8 @@ var UserSignUpPage = function (_Component) {
           _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'password', placeholder: 'write your Password here' }),
           _react2.default.createElement('br', null),
           _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
-        )
+        ),
+        this.state.fireRedirect ? _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' }) : ''
       );
     }
   }]);

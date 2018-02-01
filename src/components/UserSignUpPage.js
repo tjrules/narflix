@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios from 'axios'
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class UserSignUpPage extends Component {
   constructor() {
@@ -9,6 +10,7 @@ class UserSignUpPage extends Component {
       username: '',
       password: '',
       loggedInName: '',
+      fireRedirect: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -37,7 +39,7 @@ class UserSignUpPage extends Component {
     .then( person => {
       console.log('got this back', person.data);
       this.setState({
-        loggedInName: person.data.username
+        fireRedirect: true
       })
     })
     .catch( err => {
@@ -63,6 +65,7 @@ class UserSignUpPage extends Component {
         <br />
           <input type='submit' value='Submit' />
         </form>
+        { this.state.fireRedirect ? <Redirect to='/' /> : '' }
       </div>
       )
   }
