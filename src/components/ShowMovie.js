@@ -1,13 +1,14 @@
 // show movie
 
 import React, {Component} from 'react';
+import ShowMovieList from './ShowMovieList';
 
 class ShowMovie extends Component {
 
   renderGenres() {
-    return this.props.movie.genres.map(genre => {
+    return this.props.movie.genres.map((genre, index) => {
       return (
-        <div>
+        <div key={index}>
           {genre.name}
         </div>)
     })
@@ -15,7 +16,7 @@ class ShowMovie extends Component {
 
   render() {
     return (
-      <div className="ShowMovie" key={this.props.movie.id}>
+      <div className="ShowMovie">
         <div>{this.props.movie.title}</div>
         <div>Tagline: {this.props.movie.tagline}</div>
         <img src={`http://image.tmdb.org/t/p/w342${this.props.movie.poster_path}`}/>
