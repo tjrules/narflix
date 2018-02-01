@@ -11,14 +11,17 @@ class ShowMovieList extends Component {
   }
 
   renderMovies() {
-    return this.state.movieList.map( movie => {
+    let divId = 1
+    return this.state.movieList.map(movie => {
       return (
-        <div onClick={() => this.handleClick(movie.id)}>
-          <div>{movie.title}</div>
-          <div>{movie.overview}</div>
-          <img src={`http://image.tmdb.org/t/p/w342${movie.backdrop_path}`} />
-        </div>
-      )
+        <div
+          className="ShowMovieListItem"
+          id={`movie${divId}`}
+          onClick={() => this.handleClick(movie.id)}>
+          <div id={`title${divId}`}>{movie.title}</div>
+          <div id={`overview${divId}`} className="overview">{movie.overview}</div>
+          <img id={`img${divId++}`} src={`http://image.tmdb.org/t/p/w342${movie.backdrop_path}`}/>
+        </div>)
     })
   }
 
@@ -37,9 +40,8 @@ class ShowMovieList extends Component {
     return (
       <div className="ShowMovieList">
         {this.state.movieList ? this.renderMovies() : ""}
-        {this.state.movie ? <ShowMovie movie={this.state.movie} /> : ""}
-      </div>
-    );
+        {this.state.movie ? <ShowMovie movie={this.state.movie}/> : ""}
+      </div>);
   }
 }
 
