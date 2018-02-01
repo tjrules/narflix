@@ -1,4 +1,5 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
+import axios from 'axios'
 
 class UserLoginPage extends Component {
   constructor() {
@@ -25,7 +26,7 @@ class UserLoginPage extends Component {
     e.preventDefault();
     axios({
       method: 'POST',
-      url: '/auth/login',
+      url: '/login',
       data: {
         email: this.state.email,
         username: this.state.username,
