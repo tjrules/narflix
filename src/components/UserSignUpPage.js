@@ -1,4 +1,5 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
+import axios from 'axios'
 
 class UserSignUpPage extends Component {
   constructor() {
@@ -25,7 +26,7 @@ class UserSignUpPage extends Component {
     e.preventDefault();
     axios({
       method: 'POST',
-      url: '/auth/register',
+      url: '/register',
       data: {
         email: this.state.email,
         username: this.state.username,
