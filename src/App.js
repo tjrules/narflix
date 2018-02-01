@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import {BrowserRouter as Router, Route, Switch, Link} from 'react-router-dom';
 
 import Header from './components/Header';
 import FavoriteAdd from './components/FavoriteAdd';
@@ -11,13 +11,13 @@ import ShowMovie from './components/ShowMovie';
 import Home from './components/Home';
 
 
-
 class App extends Component {
   render(){
     return (
   <Router>
       <div className='App'>
       <h2>WHere is all my shit? </h2>
+      <Link to='/my-favorites'>Go here</Link>
         <Switch>
           <Route path='/my-favorites' component={FavoriteList} />
           <Route path='/movies' component={ShowMovieList} />

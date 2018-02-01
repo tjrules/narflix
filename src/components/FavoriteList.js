@@ -29,7 +29,10 @@ class FavoriteList extends Component {
   }
 render() {
   return(
-    <div>{this.renderFavoriteList}</div>
+    <div className="FavoriteList">
+      <h1>My Favorites List will be here </h1>
+      <div>{this.renderFavoriteList}</div>
+    </div>
     )
   }
 
