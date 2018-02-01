@@ -1,8 +1,9 @@
 //genre
 
 import React, {Component} from 'react';
+import ShowMovieList from './ShowMovieList';
 
-class Genres extends Component {
+class Genre extends Component {
   constructor() {
     super();
     this.state = {
@@ -29,13 +30,17 @@ class Genres extends Component {
   }
 
   handleClick(id) {
-    fetch(`https://api.themoviedb.org/3/genre/${id}/movies?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US`)
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${id}&language=en-US`)
     .then(data => data.json())
     .then(data => {
+      console.log('you nailed it. kinda.', data);
       this.setState({
         genresList: false,
         movieList: data.results
       })
+    })
+    .catch( err => {
+      console.log('handleclickerr', err)
     })
   }
 
@@ -43,9 +48,9 @@ class Genres extends Component {
     return (
       <div className="Genres">
         {this.state.genresList ? this.state.genresList : ""}
-        {this.state.movieList ? <ShowMovieList movieList={this.state.movieList}/> : ""}
+        {this.state.movieList ? <ShowMovieList movieList={this.state.movieList} /> : ""}
     </div>);
   }
 }
 
-export default Genres;
+export default Genre;

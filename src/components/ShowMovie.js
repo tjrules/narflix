@@ -15,7 +15,7 @@ class ShowMovie extends Component {
 
   render() {
     return (
-      <div className="ShowMovie">
+      <div className="ShowMovie" key={this.props.movie.id}>
         <div>{this.props.movie.title}</div>
         <div>Tagline: {this.props.movie.tagline}</div>
         <img src={`http://image.tmdb.org/t/p/w342${this.props.movie.poster_path}`}/>

@@ -1,6 +1,8 @@
 //show movie
 
 import React, {Component} from 'react';
+import Genre from './Genre';
+
 
 class ShowMovieList extends Component {
   constructor(props) {
@@ -15,6 +17,7 @@ class ShowMovieList extends Component {
     return this.state.movieList.map(movie => {
       return (
         <div
+          key={movie.id}
           className="ShowMovieListItem"
           id={`movie${divId}`}
           onClick={() => this.handleClick(movie.id)}>
