@@ -15264,7 +15264,7 @@ var FavoriteList = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _axios2.default.get('/narflixdb').then(function (res) {
+      _axios2.default.get('/favorites').then(function (res) {
         _this2.setState({
           apiDataLoaded: true,
           apiData: res.data.data
@@ -15749,6 +15749,10 @@ var _ShowMovieList = __webpack_require__(107);
 
 var _ShowMovieList2 = _interopRequireDefault(_ShowMovieList);
 
+var _axios = __webpack_require__(23);
+
+var _axios2 = _interopRequireDefault(_axios);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15760,10 +15764,23 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var ShowMovie = function (_Component) {
   _inherits(ShowMovie, _Component);
 
-  function ShowMovie() {
+  function ShowMovie(props) {
     _classCallCheck(this, ShowMovie);
 
-    return _possibleConstructorReturn(this, (ShowMovie.__proto__ || Object.getPrototypeOf(ShowMovie)).apply(this, arguments));
+    var _this = _possibleConstructorReturn(this, (ShowMovie.__proto__ || Object.getPrototypeOf(ShowMovie)).call(this, props));
+
+    _this.state = {
+      title: _this.props.title,
+      tagline: _this.props.tagline,
+      poster_path: _this.props.poster_path,
+      overview: _this.props.overview,
+      genre: _this.props.genre,
+      imdb_id: _this.props.imdb_id,
+      runtime: _this.props.runtime
+    };
+
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    return _this;
   }
 
   _createClass(ShowMovie, [{
@@ -15778,47 +15795,88 @@ var ShowMovie = function (_Component) {
       });
     }
   }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(event) {
+      var _this2 = this;
+
+      (0, _axios2.default)({
+        method: 'POST',
+        url: '/favorites',
+        data: {
+          title: this.state.title,
+          tagline: this.state.tagline,
+          poster_path: this.state.poster_path,
+          overview: this.state.overview,
+          genre: this.state.genre,
+          imdb_id: this.state.imdb_id,
+          runtime: this.state.runtime
+        }
+      }).then(function () {
+        _this2.setState({
+          fireRedirect: true
+        });
+      }).catch(function (err) {
+        return console.log(err);
+      });
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this3 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'ShowMovie' },
         _react2.default.createElement(
-          'div',
-          null,
-          this.props.movie.title
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          'Tagline: ',
-          this.props.movie.tagline
-        ),
-        _react2.default.createElement('img', { src: 'http://image.tmdb.org/t/p/w342' + this.props.movie.poster_path }),
-        _react2.default.createElement(
-          'div',
-          null,
-          'Overview: ',
-          this.props.movie.overview
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          'Genre: ',
-          this.renderGenres()
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          'IMDB ID: ',
-          this.props.movie.imdb_id
-        ),
-        _react2.default.createElement(
-          'div',
-          null,
-          'Runtime: ',
-          this.props.movie.runtime,
-          ' minutes'
+          'form',
+          { onSubmit: function onSubmit() {
+              return _this3.handleSubmit;
+            } },
+          _react2.default.createElement(
+            'div',
+            null,
+            this.props.movie.title
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            'Tagline: ',
+            this.props.movie.tagline
+          ),
+          _react2.default.createElement('img', { src: 'http://image.tmdb.org/t/p/w342' + this.props.movie.poster_path }),
+          _react2.default.createElement(
+            'div',
+            null,
+            'Overview: ',
+            this.props.movie.overview
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            'Genre: ',
+            this.renderGenres()
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            'IMDB ID: ',
+            this.props.movie.imdb_id
+          ),
+          _react2.default.createElement(
+            'div',
+            null,
+            'Runtime: ',
+            this.props.movie.runtime,
+            ' minutes'
+          ),
+          _react2.default.createElement('input', { type: 'submit', value: 'Submit' }),
+          _react2.default.createElement('input', { type: 'hidden', name: 'title', value: 'this.props.movie.title' }),
+          _react2.default.createElement('input', { type: 'hidden', name: 'tagline', value: 'this.props.movie.tagline' }),
+          _react2.default.createElement('input', { type: 'hidden', name: 'poster_path', value: 'this.props.movie.poster_path' }),
+          _react2.default.createElement('input', { type: 'hidden', name: 'overview', value: 'this.props.movie.overview' }),
+          _react2.default.createElement('input', { type: 'hidden', name: 'genre', value: 'this.renderGenres()' }),
+          _react2.default.createElement('input', { type: 'hidden', name: 'imdb_id', value: 'this.props.movie.imdb_id' }),
+          _react2.default.createElement('input', { type: 'hidden', name: 'runtime', value: 'this.props.movie.runtime' })
         )
       );
     }

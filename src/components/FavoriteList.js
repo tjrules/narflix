@@ -11,7 +11,7 @@ class FavoriteList extends Component {
     }
   }
   componentDidMount() {
-    axios.get('/narflixdb')
+    axios.get('/favorites')
       .then(res => {
         this.setState({
           apiDataLoaded:true,
