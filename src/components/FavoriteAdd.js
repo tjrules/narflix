@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom';
+import {Redirect} from 'react-router-dom'; 
 
 class FavoriteAdd extends Component {
   constructor() {
@@ -27,7 +27,7 @@ class FavoriteAdd extends Component {
 
   handleFormSubmit(e){
     e.preventDefault();
-    axios.post('/narflixdb', {
+    axios.post('/favorites', {
       title: this.state.title,
       poster_path:this.state.poster_path,
       overview: this.state.overview,
@@ -38,9 +38,11 @@ class FavoriteAdd extends Component {
     })
     .then(res=> {
       this.setState({
-        newId: res.data.data.id,
+        newId: res.data.movie.id,
         fireRedirect: true,
       })
+      console.log('we did it boizzz', res)
+      // console.log('new state' this.state.newId)
     })
     .catch(err=> console.log(err))
     e.target.reset()
@@ -97,7 +99,11 @@ class FavoriteAdd extends Component {
               value={this.state.runtime}
               onChange={this.handleInputChange}
             />
+            <input type="submit" value="submit" />
         </form>
+        {this.state.fireRedirect
+          ? <Redirect to={`/my-favorites/${this.state.newId}`} />
+        : '' }
 
       </div>
     )

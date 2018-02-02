@@ -20,10 +20,10 @@ class FavMovieEditForm extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
-
+ 
 
   componentDidMount() {
-    axios.get(`/favorites/${this.props.match.params.id}`)
+    axios.put(`/favorites/${this.props.match.params.id}`)
       .then((res) => {
         console.log(res);
         const favMovies = res.data.data;
@@ -155,4 +155,3 @@ class FavMovieEditForm extends Component {
 }
 
 export default FavMovieEditForm;
-

@@ -16,9 +16,9 @@ Movie.findById = id => {
 };
 
 Movie.create = (movies) => {
-  console.log("created movie");
+  console.log("inside create movie");
   return db.one(
-    `
+    ` 
       INSERT INTO movies
       (title, imdb_id, overview, poster_path, runtime, tagline, genres, user_id)
       VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *
