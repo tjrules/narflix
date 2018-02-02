@@ -1,4 +1,7 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import Header from './Header';
 
 class UserLoginPage extends Component {
   constructor() {
@@ -8,6 +11,7 @@ class UserLoginPage extends Component {
       username: '',
       password: '',
       loggedInName: '',
+      fireRedirect: false
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -23,44 +27,44 @@ class UserLoginPage extends Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    axios({
-      method: 'POST',
-      url: '/auth/login',
-      data: {
+    axios.post('/auth/login', {
         email: this.state.email,
         username: this.state.username,
         password: this.state.password,
-
-      }
     })
-    .then( person => {
-      console.log('got this back', person.data);
+    .then( data => {
+      console.log('thennnnnnn');
       this.setState({
-        loggedInName: person.data.username
+        fireRedirect: true
       })
-    })
-    .catch( err => {
-      console.log(err)
-    })
+      })
+    .catch(err => console.log(err))
+    e.target.reset()
   }
+
 
   render() {
     console.log(this.state)
     return (
       <div className='form'>
+      <Header />
       {(this.state.loggedInName) ? <h1>Welcome, {this.state.loggedInName}</h1> : <h1>Please Log In</h1>}
         <form onSubmit={this.handleSubmit}>
-        <label />
+        <label>
           username
-          <input type='text' onChange={this.handleChange} name='username' placeholder='write your username here' />
-        <label />
+          <input type='text' onChange={this.handleChange} name='username' placeholder='write your username' />
+        </label>
+        <br />
+        <label>
           password
-          <input type='text' onChange={this.handleChange} name='password' placeholder='write your password here' />
+          <input type='text' onChange={this.handleChange} name='password' placeholder='write your password' />
+        </label>
         <br />
           <input type='submit' value='get em done' />
         </form>
+        { this.state.fireRedirect ? <Redirect to='/' /> : '' }
       </div>
-      )
+    )
   }
 }
 

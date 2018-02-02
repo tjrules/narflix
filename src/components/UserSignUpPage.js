@@ -1,4 +1,8 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
+import Header from './Header';
+
 
 class UserSignUpPage extends Component {
   constructor() {
@@ -8,6 +12,7 @@ class UserSignUpPage extends Component {
       username: '',
       password: '',
       loggedInName: '',
+      fireRedirect: false,
     }
     this.handleSubmit = this.handleSubmit.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -36,7 +41,7 @@ class UserSignUpPage extends Component {
     .then( person => {
       console.log('got this back', person.data);
       this.setState({
-        loggedInName: person.data.username
+        fireRedirect: true
       })
     })
     .catch( err => {
@@ -48,23 +53,31 @@ class UserSignUpPage extends Component {
     console.log(this.state)
     return (
       <div className='form'>
-      <h1>Welcome Please Sign Up</h1>
+      <Header />
+      <h1>Welcome! Join Narflix Here</h1>
         <form onSubmit={this.handleSubmit}>
-        <label />
+        <label>
           Email
           <input type='text' onChange={this.handleChange} name='email' placeholder='write your Email here' />
-        <label />
+        </label>
+        <br />
+        <label>
           Username
           <input type='text' onChange={this.handleChange} name='username' placeholder='write your Username here' />
-        <label />
+        </label>
+        <br />
+        <label>
           Password
           <input type='text' onChange={this.handleChange} name='password' placeholder='write your Password here' />
+        </label>
         <br />
           <input type='submit' value='Submit' />
         </form>
+        { this.state.fireRedirect ? <Redirect to='/' /> : '' }
       </div>
       )
   }
 }
+
 
 export default UserSignUpPage;

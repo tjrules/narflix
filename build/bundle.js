@@ -9983,6 +9983,14 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(29);
 
+var _UserLoginPage = __webpack_require__(111);
+
+var _UserLoginPage2 = _interopRequireDefault(_UserLoginPage);
+
+var _UserSignUpPage = __webpack_require__(112);
+
+var _UserSignUpPage2 = _interopRequireDefault(_UserSignUpPage);
+
 var _Header = __webpack_require__(83);
 
 var _Header2 = _interopRequireDefault(_Header);
@@ -10007,7 +10015,7 @@ var _ShowMovieList = __webpack_require__(106);
 
 var _ShowMovieList2 = _interopRequireDefault(_ShowMovieList);
 
-var _ShowMovie = __webpack_require__(108);
+var _ShowMovie = __webpack_require__(107);
 
 var _ShowMovie2 = _interopRequireDefault(_ShowMovie);
 
@@ -10049,6 +10057,8 @@ var App = function (_Component) {
           _react2.default.createElement(
             _reactRouterDom.Switch,
             null,
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _UserLoginPage2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _UserSignUpPage2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/my-favorites', component: _FavoriteList2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/movies', component: _ShowMovieList2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/movies/:id', component: _ShowMovie2.default }),
@@ -14132,97 +14142,62 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(29);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+//header
 var Header = function Header() {
   return _react2.default.createElement(
-    "div",
-    { className: "Header" },
+    'div',
+    { className: 'Header' },
     _react2.default.createElement(
-      "nav",
-      { className: "navbar navbar-inverse" },
+      'header',
+      null,
       _react2.default.createElement(
-        "div",
-        { className: "container-fluid" },
+        'div',
+        { className: 'logo' },
+        'Narflix'
+      ),
+      _react2.default.createElement(
+        'nav',
+        null,
         _react2.default.createElement(
-          "div",
-          { className: "navbar-header" },
+          'ul',
+          null,
           _react2.default.createElement(
-            "button",
-            { type: "button", className: "navbar-toggle", "data-toggle": "collapse", "data-target": "#myNavbar" },
-            _react2.default.createElement("span", { className: "icon-bar" }),
-            _react2.default.createElement("span", { className: "icon-bar" }),
-            _react2.default.createElement("span", { className: "icon-bar" })
-          ),
-          _react2.default.createElement(
-            "a",
-            { className: "navbar-brand", href: "#" },
-            "Narflix"
-          )
-        ),
-        _react2.default.createElement(
-          "div",
-          { className: "collapse navbar-collapse", id: "myNavbar" },
-          _react2.default.createElement(
-            "ul",
-            { className: "nav navbar-nav" },
+            'li',
+            null,
             _react2.default.createElement(
-              "li",
-              { className: "active" },
-              _react2.default.createElement(
-                "a",
-                { href: "#" },
-                "My Watch List"
-              )
-            ),
-            _react2.default.createElement(
-              "li",
-              null,
-              _react2.default.createElement(
-                "a",
-                { href: "#" },
-                "Browse by Genre"
-              )
-            ),
-            _react2.default.createElement(
-              "li",
-              null,
-              _react2.default.createElement(
-                "a",
-                { href: "#" },
-                "About Coolest Group"
-              )
+              _reactRouterDom.Link,
+              { to: '/' },
+              'Home'
             )
           ),
           _react2.default.createElement(
-            "ul",
-            { className: "nav navbar-nav navbar-right" },
+            'li',
+            null,
             _react2.default.createElement(
-              "li",
-              null,
-              _react2.default.createElement(
-                "a",
-                { href: "#" },
-                _react2.default.createElement("span", { className: "glyphicon glyphicon-user" }),
-                " Sign Up"
-              )
-            ),
+              _reactRouterDom.Link,
+              { to: '/login' },
+              'Login'
+            )
+          ),
+          _react2.default.createElement(
+            'li',
+            null,
             _react2.default.createElement(
-              "li",
-              null,
-              _react2.default.createElement(
-                "a",
-                { href: "#" },
-                _react2.default.createElement("span", { className: "glyphicon glyphicon-log-in" }),
-                " Login"
-              )
+              _reactRouterDom.Link,
+              { to: '/register' },
+              'Sign Up'
             )
           )
         )
       )
     )
   );
-}; //header
+};
+
 exports.default = Header;
 
 /***/ }),
@@ -15475,6 +15450,10 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _ShowMovieList = __webpack_require__(106);
+
+var _ShowMovieList2 = _interopRequireDefault(_ShowMovieList);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15483,13 +15462,13 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //genre
 
-var Genres = function (_Component) {
-  _inherits(Genres, _Component);
+var Genre = function (_Component) {
+  _inherits(Genre, _Component);
 
-  function Genres() {
-    _classCallCheck(this, Genres);
+  function Genre() {
+    _classCallCheck(this, Genre);
 
-    var _this = _possibleConstructorReturn(this, (Genres.__proto__ || Object.getPrototypeOf(Genres)).call(this));
+    var _this = _possibleConstructorReturn(this, (Genre.__proto__ || Object.getPrototypeOf(Genre)).call(this));
 
     _this.state = {
       genresList: ""
@@ -15497,18 +15476,23 @@ var Genres = function (_Component) {
     return _this;
   }
 
-  _createClass(Genres, [{
-    key: "componentDidMount",
+  _createClass(Genre, [{
+    key: 'componentDidMount',
     value: function componentDidMount() {
       var _this2 = this;
 
       fetch("https://api.themoviedb.org/3/genre/movie/list?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US").then(function (data) {
         return data.json();
       }).then(function (data) {
-        var genres = data.genres.map(function (genre) {
+        var divId = 1;
+        var genres = data.genres.map(function (genre, index) {
           return _react2.default.createElement(
-            "div",
-            { onClick: function onClick() {
+            'div',
+            {
+              key: index,
+              className: 'genresListItem',
+              id: 'genre' + divId++,
+              onClick: function onClick() {
                 return _this2.handleClick(genre.id);
               } },
             genre.name
@@ -15518,32 +15502,37 @@ var Genres = function (_Component) {
       });
     }
   }, {
-    key: "handleClick",
+    key: 'handleClick',
     value: function handleClick(id) {
       var _this3 = this;
 
-      fetch("https://api.themoviedb.org/3/genre/" + id + "/movies?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US").then(function (data) {
+      fetch('https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=' + id + '&language=en-US').then(function (data) {
         return data.json();
       }).then(function (data) {
-        _this3.setState({ genresList: false, movieList: data.results });
+        _this3.setState({
+          genresList: false,
+          movieList: data.results
+        });
+      }).catch(function (err) {
+        console.log('handleclickerr', err);
       });
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "Genres" },
+        'div',
+        { className: 'Genres' },
         this.state.genresList ? this.state.genresList : "",
-        this.state.movieList ? _react2.default.createElement(ShowMovieList, { movieList: this.state.movieList }) : ""
+        this.state.movieList ? _react2.default.createElement(_ShowMovieList2.default, { movieList: this.state.movieList }) : ""
       );
     }
   }]);
 
-  return Genres;
+  return Genre;
 }(_react.Component);
 
-exports.default = Genres;
+exports.default = Genre;
 
 /***/ }),
 /* 106 */
@@ -15562,13 +15551,21 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _Genre = __webpack_require__(105);
+
+var _Genre2 = _interopRequireDefault(_Genre);
+
+var _ShowMovie = __webpack_require__(107);
+
+var _ShowMovie2 = _interopRequireDefault(_ShowMovie);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
 
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //show movie
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } //show movie list
 
 var ShowMovieList = function (_Component) {
   _inherits(ShowMovieList, _Component);
@@ -15585,36 +15582,41 @@ var ShowMovieList = function (_Component) {
   }
 
   _createClass(ShowMovieList, [{
-    key: "renderMovies",
+    key: 'renderMovies',
     value: function renderMovies() {
       var _this2 = this;
 
-      return this.state.movieList.map(function (movie) {
+      var divId = 1;
+      return this.state.movieList.map(function (movie, index) {
         return _react2.default.createElement(
-          "div",
-          { onClick: function onClick() {
+          'div',
+          {
+            key: index,
+            className: 'ShowMovieListItem',
+            id: 'movie' + divId,
+            onClick: function onClick() {
               return _this2.handleClick(movie.id);
             } },
           _react2.default.createElement(
-            "div",
-            null,
+            'div',
+            { id: 'title' + divId },
             movie.title
           ),
           _react2.default.createElement(
-            "div",
-            null,
+            'div',
+            { id: 'overview' + divId, className: 'overview' },
             movie.overview
           ),
-          _react2.default.createElement("img", { src: "http://image.tmdb.org/t/p/w342" + movie.backdrop_path })
+          _react2.default.createElement('img', { id: 'img' + divId++, src: 'http://image.tmdb.org/t/p/w342' + movie.backdrop_path })
         );
       });
     }
   }, {
-    key: "handleClick",
+    key: 'handleClick',
     value: function handleClick(id) {
       var _this3 = this;
 
-      fetch("https://api.themoviedb.org/3/movie/" + id + "?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US").then(function (data) {
+      fetch('https://api.themoviedb.org/3/movie/' + id + '?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US').then(function (data) {
         return data.json();
       }).then(function (data) {
         _this3.setState({
@@ -15624,13 +15626,13 @@ var ShowMovieList = function (_Component) {
       });
     }
   }, {
-    key: "render",
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "ShowMovieList" },
+        'div',
+        { className: 'ShowMovieList' },
         this.state.movieList ? this.renderMovies() : "",
-        this.state.movie ? _react2.default.createElement(ShowMovie, { movie: this.state.movie }) : ""
+        this.state.movie ? _react2.default.createElement(_ShowMovie2.default, { movie: this.state.movie }) : ""
       );
     }
   }]);
@@ -15641,8 +15643,7 @@ var ShowMovieList = function (_Component) {
 exports.default = ShowMovieList;
 
 /***/ }),
-/* 107 */,
-/* 108 */
+/* 107 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -15657,6 +15658,10 @@ var _createClass = function () { function defineProperties(target, props) { for 
 var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
+
+var _ShowMovieList = __webpack_require__(106);
+
+var _ShowMovieList2 = _interopRequireDefault(_ShowMovieList);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -15676,41 +15681,58 @@ var ShowMovie = function (_Component) {
   }
 
   _createClass(ShowMovie, [{
-    key: "render",
+    key: 'renderGenres',
+    value: function renderGenres() {
+      return this.props.movie.genres.map(function (genre, index) {
+        return _react2.default.createElement(
+          'div',
+          { key: index },
+          genre.name
+        );
+      });
+    }
+  }, {
+    key: 'render',
     value: function render() {
       return _react2.default.createElement(
-        "div",
-        { className: "ShowMovie" },
+        'div',
+        { className: 'ShowMovie' },
         _react2.default.createElement(
-          "div",
+          'div',
           null,
           this.props.movie.title
         ),
         _react2.default.createElement(
-          "div",
+          'div',
           null,
-          "Tagline: ",
+          'Tagline: ',
           this.props.movie.tagline
         ),
-        _react2.default.createElement("img", { src: "http://image.tmdb.org/t/p/w342" + this.props.movie.poster_path }),
+        _react2.default.createElement('img', { src: 'http://image.tmdb.org/t/p/w342' + this.props.movie.poster_path }),
         _react2.default.createElement(
-          "div",
+          'div',
           null,
-          "Overview: ",
+          'Overview: ',
           this.props.movie.overview
         ),
         _react2.default.createElement(
-          "div",
+          'div',
           null,
-          "IMDB ID: ",
+          'Genre: ',
+          this.renderGenres()
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          'IMDB ID: ',
           this.props.movie.imdb_id
         ),
         _react2.default.createElement(
-          "div",
+          'div',
           null,
-          "Runtime: ",
+          'Runtime: ',
           this.props.movie.runtime,
-          " minutes"
+          ' minutes'
         )
       );
     }
@@ -15722,6 +15744,7 @@ var ShowMovie = function (_Component) {
 exports.default = ShowMovie;
 
 /***/ }),
+/* 108 */,
 /* 109 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -15791,8 +15814,17 @@ var FavoriteList = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
-        this.renderFavoriteList
+        { className: 'FavoriteList' },
+        _react2.default.createElement(
+          'h1',
+          null,
+          'My Favorites List will be here '
+        ),
+        _react2.default.createElement(
+          'div',
+          null,
+          this.renderFavoriteList
+        )
       );
     }
   }]);
@@ -15823,6 +15855,10 @@ var _Header = __webpack_require__(83);
 
 var _Header2 = _interopRequireDefault(_Header);
 
+var _Genre = __webpack_require__(105);
+
+var _Genre2 = _interopRequireDefault(_Genre);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -15851,7 +15887,8 @@ var Home = function (_React$Component) {
           'h2',
           null,
           'this is the Home Component, we will be rendering Genres here'
-        )
+        ),
+        _react2.default.createElement(_Genre2.default, null)
       );
     }
   }]);
@@ -15860,6 +15897,274 @@ var Home = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Home;
+
+/***/ }),
+/* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(86);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _reactRouterDom = __webpack_require__(29);
+
+var _Header = __webpack_require__(83);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserLoginPage = function (_Component) {
+  _inherits(UserLoginPage, _Component);
+
+  function UserLoginPage() {
+    _classCallCheck(this, UserLoginPage);
+
+    var _this = _possibleConstructorReturn(this, (UserLoginPage.__proto__ || Object.getPrototypeOf(UserLoginPage)).call(this));
+
+    _this.state = {
+      email: '',
+      username: '',
+      password: '',
+      loggedInName: '',
+      fireRedirect: false
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleChange = _this.handleChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(UserLoginPage, [{
+    key: 'handleChange',
+    value: function handleChange(e) {
+      var name = e.target.name;
+      var value = e.target.value;
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      _axios2.default.post('/auth/login', {
+        email: this.state.email,
+        username: this.state.username,
+        password: this.state.password
+      }).then(function (data) {
+        console.log('thennnnnnn');
+        _this2.setState({
+          fireRedirect: true
+        });
+      }).catch(function (err) {
+        return console.log(err);
+      });
+      e.target.reset();
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      console.log(this.state);
+      return _react2.default.createElement(
+        'div',
+        { className: 'form' },
+        _react2.default.createElement(_Header2.default, null),
+        this.state.loggedInName ? _react2.default.createElement(
+          'h1',
+          null,
+          'Welcome, ',
+          this.state.loggedInName
+        ) : _react2.default.createElement(
+          'h1',
+          null,
+          'Please Log In'
+        ),
+        _react2.default.createElement(
+          'form',
+          { onSubmit: this.handleSubmit },
+          _react2.default.createElement(
+            'label',
+            null,
+            'username',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'username', placeholder: 'write your username' })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'label',
+            null,
+            'password',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'password', placeholder: 'write your password' })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', { type: 'submit', value: 'get em done' })
+        ),
+        this.state.fireRedirect ? _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' }) : ''
+      );
+    }
+  }]);
+
+  return UserLoginPage;
+}(_react.Component);
+
+exports.default = UserLoginPage;
+
+/***/ }),
+/* 112 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _axios = __webpack_require__(86);
+
+var _axios2 = _interopRequireDefault(_axios);
+
+var _reactRouterDom = __webpack_require__(29);
+
+var _Header = __webpack_require__(83);
+
+var _Header2 = _interopRequireDefault(_Header);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var UserSignUpPage = function (_Component) {
+  _inherits(UserSignUpPage, _Component);
+
+  function UserSignUpPage() {
+    _classCallCheck(this, UserSignUpPage);
+
+    var _this = _possibleConstructorReturn(this, (UserSignUpPage.__proto__ || Object.getPrototypeOf(UserSignUpPage)).call(this));
+
+    _this.state = {
+      email: '',
+      username: '',
+      password: '',
+      loggedInName: '',
+      fireRedirect: false
+    };
+    _this.handleSubmit = _this.handleSubmit.bind(_this);
+    _this.handleChange = _this.handleChange.bind(_this);
+    return _this;
+  }
+
+  _createClass(UserSignUpPage, [{
+    key: 'handleChange',
+    value: function handleChange(e) {
+      var name = e.target.name;
+      var value = e.target.value;
+      this.setState(_defineProperty({}, name, value));
+    }
+  }, {
+    key: 'handleSubmit',
+    value: function handleSubmit(e) {
+      var _this2 = this;
+
+      e.preventDefault();
+      (0, _axios2.default)({
+        method: 'POST',
+        url: '/auth/register',
+        data: {
+          email: this.state.email,
+          username: this.state.username,
+          password: this.state.password
+
+        }
+      }).then(function (person) {
+        console.log('got this back', person.data);
+        _this2.setState({
+          fireRedirect: true
+        });
+      }).catch(function (err) {
+        console.log(err);
+      });
+    }
+  }, {
+    key: 'render',
+    value: function render() {
+      console.log(this.state);
+      return _react2.default.createElement(
+        'div',
+        { className: 'form' },
+        _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(
+          'h1',
+          null,
+          'Welcome! Join Narflix Here'
+        ),
+        _react2.default.createElement(
+          'form',
+          { onSubmit: this.handleSubmit },
+          _react2.default.createElement(
+            'label',
+            null,
+            'Email',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'email', placeholder: 'write your Email here' })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Username',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'username', placeholder: 'write your Username here' })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement(
+            'label',
+            null,
+            'Password',
+            _react2.default.createElement('input', { type: 'text', onChange: this.handleChange, name: 'password', placeholder: 'write your Password here' })
+          ),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', { type: 'submit', value: 'Submit' })
+        ),
+        this.state.fireRedirect ? _react2.default.createElement(_reactRouterDom.Redirect, { to: '/' }) : ''
+      );
+    }
+  }]);
+
+  return UserSignUpPage;
+}(_react.Component);
+
+exports.default = UserSignUpPage;
 
 /***/ })
 /******/ ]);
