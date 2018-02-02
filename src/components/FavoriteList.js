@@ -10,26 +10,31 @@ class FavoriteList extends Component {
       apiDataLoaded: false,
       apiData: null,
     }
+    this.renderFavoriteList = this.renderFavoriteList.bind(this);
   }
   componentDidMount() {
+
     axios.get('/favorites')
       .then(res => {
-
         this.setState({
           apiDataLoaded:true,
-          apiData: res.data.data,
+          apiData: res.data.movies,
         })
-
+console.log('this is the state of our data', this.state.apiData)
       }).catch(err => {
         console.log(err)
       })
   }
 
   renderFavoriteList() {
+    console.log('inside renderFavorite List')
+    console.log('inside renderFavorite List', this.state.apiData)
+
     if(this.state.apiDataLoaded) {
-      return this.state.apiData.map(favorites => {
+      return this.state.apiData.map(movies => {
         return(
-          <UserFavorites key={favorites.id} favorites={favorites} />
+
+          <UserFavorites key={movies.id} movies={movies} />
       );
     });
   } else return <p>Loading . . . </p>
@@ -38,8 +43,9 @@ class FavoriteList extends Component {
 render() {
   return(
     <div className="FavoriteList">
+      <button>Add Movie</button>
       <h1>My Favorites List will be here </h1>
-      <div>{this.renderFavoriteList}</div>
+      <div>{this.renderFavoriteList()}</div>
     </div>
     )
   }
