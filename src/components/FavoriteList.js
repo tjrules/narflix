@@ -13,22 +13,19 @@ class FavoriteList extends Component {
     this.renderFavoriteList = this.renderFavoriteList.bind(this);
   }
   componentDidMount() {
-    console.log('inside componentDidMount')
+
     axios.get('/favorites')
       .then(res => {
         this.setState({
           apiDataLoaded:true,
           apiData: res.data.movies,
         })
-console.log('this is the state of our data', this.state.apiData)
       }).catch(err => {
         console.log(err)
       })
   }
 
   renderFavoriteList() {
-    console.log('inside renderFavorite List')
-    console.log('inside renderFavorite List', this.state.apiData)
 
     if(this.state.apiDataLoaded) {
       return this.state.apiData.map(movies => {
