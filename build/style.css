@@ -196,7 +196,7 @@ img {
 
 
 #next {
-  grid-area: 2 / 3 / span 2 / span 1;
+  grid-area: 2 / 4 / span 2 / span 1;
 }
 
 #previous {
