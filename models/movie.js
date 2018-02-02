@@ -21,7 +21,7 @@ Movie.create = (movies) => {
     `
       INSERT INTO movies
       (title, imdb_id, overview, poster_path, runtime, tagline, genres, user_id)
-      VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *,
+      VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *
     `,
     [movies.title, movies.imdb_id, movies.overview, movies.poster_path, movies.runtime, movies.tagline, movies.genres, movies.user_id]
   );

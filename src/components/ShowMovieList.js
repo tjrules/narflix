@@ -54,6 +54,7 @@ class ShowMovieList extends Component {
     .then(data => {
       this.setState({
         movieList: false,
+        movieListNext: false,
         movie: data
       })
     })
@@ -93,7 +94,7 @@ class ShowMovieList extends Component {
       <div className="ShowMovieList">
         {this.state.movieList ? this.renderMovies() : ""}
         {this.state.movie ? <ShowMovie movie={this.state.movie}/> : ""}
-        {this.state.nextPage ? this.renderMoviesNext() : ""}
+        {this.state.movieListNext ? this.renderMoviesNext() : ""}
         <input id="next" className="button" type="button" onClick={() => this.nextPage()} value="Next" />
         <input id="previous" className="button" type="button" onClick={() => this.prevPage()} value="Prev" />
       </div>);
