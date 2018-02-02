@@ -3,16 +3,19 @@ const Movie = require('../models/movie');
 const moviesController = {};
 
 moviesController.index = (req, res) => {
-  Movie.findAll()
+  console.log('inside movie index', req.user)
+  Movie.findAll(req.user.id)
     .then(movies => {
+      console.log('this is movies', movies)
       res.json({
-        message: 'ok',
-        data: movies,
-      });
+        message: 'jase is the greatest',
+        movies
+      })
+    console.log('this is movies',movies)
     })
     .catch(err => {
       console.log(err);
-      res.status(500).json({ err });
+      res.status(400).json({ err });
     });
 };
 
@@ -55,7 +58,7 @@ moviesController.edit = (req,res) => {
   Movie.findById(req.params.id)
     .then(movies => {
       res.render(`movies/edit`, {
-        goals:goals
+        movies:movies,
       })
     })
     .catch(err => {
@@ -85,7 +88,7 @@ moviesController.update = (req, res) => {
 
 moviesController.delete = (req, res) => {
   Movie.delete(req.params.id)
-    .then(() => {
+    .then(mov => {
       res.redirect('/')
     })
     .catch(err => {
