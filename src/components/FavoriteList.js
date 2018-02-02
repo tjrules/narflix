@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import UserFavorites from './UserFavorites';
+import { Link } from 'react-router-dom';
 
 class FavoriteList extends Component {
   constructor() {
@@ -35,12 +36,12 @@ class FavoriteList extends Component {
       );
     });
   } else return <p>Loading . . . </p>
-  } 
+  }
 
 render() {
   return(
     <div className="FavoriteList">
-      <button>Add Movie</button>
+      <div id="link2"><Link to='/add'>Add</Link></div>
       <h1>My Favorites List will be here </h1>
       <div>{this.renderFavoriteList()}</div>
     </div>
