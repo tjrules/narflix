@@ -37,7 +37,7 @@ moviesController.create = (req, res) => {
     .then(movie => {
       res.json({
         message: 'commas suck',
-        movie
+        movie 
       })
     })
     .catch(err => {
