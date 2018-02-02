@@ -17,13 +17,13 @@ class ShowMovie extends Component {
   render() {
     return (
       <div className="ShowMovie">
-        <div>{this.props.movie.title}</div>
-        <div>Tagline: {this.props.movie.tagline}</div>
+        <div id="title">{this.props.movie.title}</div>
+        <div id="tagline">{this.props.movie.tagline}...</div>
         <img src={`http://image.tmdb.org/t/p/w342${this.props.movie.poster_path}`}/>
-        <div>Overview: {this.props.movie.overview}</div>
-        <div>Genre: {this.renderGenres()}</div>
-        <div>IMDB ID: {this.props.movie.imdb_id}</div>
-        <div>Runtime: {this.props.movie.runtime} minutes</div>
+        <div id="overview">{this.props.movie.overview}</div>
+        <div id="genre">Genres:{this.renderGenres()}</div>
+        <div id="imdbid">IMDB ID: {this.props.movie.imdb_id}</div>
+        <div id="runtime">Runtime: {this.props.movie.runtime} minutes</div>
       </div>)
   }
 }
