@@ -3,7 +3,11 @@ const db = require('../db/config');
 const Movie = {};
 
 Movie.findAll = id => {
-  return db.query(`SELECT *, movies.id FROM movies JOIN users ON movies.user_id = users.id WHERE movies.user_id = $1`, id)
+  return db.query(`
+    SELECT *, movies.id FROM movies
+    JOIN users ON movies.user_id = users.id
+    WHERE users.id = $1
+    `, id)
 };
 
 

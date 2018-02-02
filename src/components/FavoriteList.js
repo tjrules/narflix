@@ -1,6 +1,7 @@
 
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
+import UserFavorites from './UserFavorites';
 
 class FavoriteList extends Component {
   constructor() {
@@ -11,22 +12,29 @@ class FavoriteList extends Component {
     }
   }
   componentDidMount() {
-    axios.get('/narflixdb')
+    axios.get('/favorites')
       .then(res => {
+
         this.setState({
           apiDataLoaded:true,
           apiData: res.data.data,
         })
+
+      }).catch(err => {
+        console.log(err)
       })
   }
 
   renderFavoriteList() {
     if(this.state.apiDataLoaded) {
       return this.state.apiData.map(favorites => {
-        console.log('this is favorites:')
-      })
-    }
+        return(
+          <UserFavorites key={favorites.id} favorites={favorites} />
+      );
+    });
+  } else return <p>Loading . . . </p>
   }
+
 render() {
   return(
     <div className="FavoriteList">
