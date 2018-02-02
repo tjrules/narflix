@@ -15,16 +15,15 @@ class FavMovieEditForm extends Component {
       runtime: '',
       tagline: '',
       genres: '',
-      newId: '',
       fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
-
+ 
 
   componentDidMount() {
-    axios.get(`/favorites/${this.props.match.params.id}`)
+    axios.put(`/favorites/${this.props.match.params.id}`)
       .then((res) => {
         console.log(res);
         const favMovies = res.data.data;

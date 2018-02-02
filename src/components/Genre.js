@@ -36,8 +36,7 @@ class Genre extends Component {
     .then(data => {
       this.setState({
         genresList: false,
-        movieList: data.results,
-        genreId: id
+        movieList: data.results
       })
     })
     .catch( err => {
@@ -49,7 +48,7 @@ class Genre extends Component {
     return (
       <div className="Genres">
         {this.state.genresList ? this.state.genresList : ""}
-        {this.state.movieList && this.state.genreId ? <ShowMovieList movieList={this.state.movieList} genreId={this.state.genreId} /> : ""}
+        {this.state.movieList ? <ShowMovieList movieList={this.state.movieList} /> : ""}
     </div>);
   }
 }
