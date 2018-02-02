@@ -15,6 +15,7 @@ class FavMovieEditForm extends Component {
       runtime: '',
       tagline: '',
       genres: '',
+      newId: '',
       fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -155,4 +156,3 @@ class FavMovieEditForm extends Component {
 }
 
 export default FavMovieEditForm;
-

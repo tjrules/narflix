@@ -20,15 +20,12 @@ class FavoriteList extends Component {
           apiDataLoaded:true,
           apiData: res.data.movies,
         })
-console.log('this is the state of our data', this.state.apiData)
       }).catch(err => {
         console.log(err)
       })
   }
 
   renderFavoriteList() {
-    console.log('inside renderFavorite List')
-    console.log('inside renderFavorite List', this.state.apiData)
 
     if(this.state.apiDataLoaded) {
       return this.state.apiData.map(movies => {

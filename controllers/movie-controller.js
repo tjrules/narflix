@@ -35,9 +35,13 @@ moviesController.create = (req, res) => {
       user_id: req.user.id
     })
     .then(movie => {
-      res.redirect(`movies/${movie.id}`)
+      res.json({
+        message: 'commas suck',
+        movie
+      })
     })
     .catch(err => {
+      console.log('ya messed it up, TJ', err)
       res.status(400).json(err);
     });
 };
