@@ -6,7 +6,7 @@ DROP TABLE IF EXISTS movies;
 CREATE TABLE IF NOT EXISTS movies (
   id BIGSERIAL PRIMARY KEY,
   title TEXT,
-  imdb_id INTEGER,
+  imdb_id TEXT,
   overview TEXT,
   poster_path TEXT,
   runtime INTEGER,
