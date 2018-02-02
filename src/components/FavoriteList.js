@@ -35,7 +35,7 @@ class FavoriteList extends Component {
       );
     });
   } else return <p>Loading . . . </p>
-  }
+  } 
 
 render() {
   return(
