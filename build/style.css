@@ -7,11 +7,13 @@ body {
   color: #ffffff;
   font-family: sans-serif;
 }
+
 header {
   display: grid;
   width: 100vw;
-  grid-template: 75px / 25% 25% repeat(3, 1fr);
-  background: #222222;;
+  grid-template: 75px / 25% 25% repeat(4, 1fr);
+  background: #222222;
+  position: fixed;
 }
 
 .logo, header>div {
@@ -31,11 +33,11 @@ header>div {
   grid-column-end: span 1;
 }
 
+#link1, #link2, #link3, #link4 {font-size: 1.75vw;}
 #link1 {grid-column-start: 3;}
-#link2 {grid-column-start: 4;}
+#link2 {grid-column-start: 4}
 #link3 {grid-column-start: 5;}
 #link4 {grid-column-start: 6;}
-
 
 a {
   text-decoration: none;
@@ -44,7 +46,7 @@ a {
   padding: 0 10px;
   border: 1px solid #ed146f;
   border-radius: 20px;
-  font-size: 1.5vw;
+  font-size: 1em;
   font-variant: small-caps;
   transition: 0.2s;
 }
@@ -54,12 +56,12 @@ a:hover {
   color: #ffffff;
   text-decoration: none;
 }
-/*===========================================================================*/
+
 .Genres {
   display: grid;
   height: 100vh;
   width: 100vw;
-  grid-template: repeat(6, 1fr) / repeat(10, 1fr);
+  grid-template: 75px repeat(6, 1fr) / repeat(10, 1fr);
 }
 
 .genresListItem {
@@ -73,6 +75,7 @@ a:hover {
   margin: 5%;
   transition: all 0.3s;
   font-size: 2vw;
+  cursor: pointer;
 }
 
 .genresListItem:hover {
@@ -80,20 +83,11 @@ a:hover {
   color: #333333;
 }
 
-#genre1, #genre2, #genre3, #genre4, #genre5 {grid-row-start: 2;}
-#genre6, #genre7, #genre8, #genre9, #genre10 {grid-row-start: 3;}
-#genre11, #genre12, #genre13, #genre14, #genre15 {grid-row-start: 4;}
-#genre16, #genre17, #genre18, #genre19 {grid-row-start: 5;}
+#genre1, #genre2, #genre3, #genre4, #genre5 {grid-row-start: 3;}
+#genre6, #genre7, #genre8, #genre9, #genre10 {grid-row-start: 4;}
+#genre11, #genre12, #genre13, #genre14, #genre15 {grid-row-start: 5;}
+#genre16, #genre17, #genre18, #genre19 {grid-row-start: 6;}
 #genre16 {grid-column-start: 2;}
-/*===========================================================================*/
-/* .ShowMovieList {
-  display: grid;
-  height: 100vh;
-  width: 100vw;
-  grid-template: repeat(25, 1fr) / repeat(17, 1fr);
-  font-size: 2vw;
-}
-
 
 .form {
   font-family: 'inconsolata', monospace;
@@ -103,39 +97,49 @@ a:hover {
   border-radius: 50px 20px;
   text-align: center;
 }
-
+/*===========================================================================*/
+.ShowMovieList {
+  display: grid;
+  height: 100vh;
+  width: 100vw;
+  grid-template: 75px repeat(37, 5%) / repeat(17, 1fr);
+  font-size: 2vw;
+}
 
 .ShowMovieListItem {
   display: flex;
   justify-content: center;
-  align-items: flex-start;
-  border: 1px solid #ffffff;
+  align-items: center;
+  flex-direction: column;
+  grid-column-end: span 3;
+  grid-row-end: span 4;
   transition: all 0.3s;
   font-size: 0.75em;
+  cursor: pointer;
 }
 
-.overview {
-  display: none;
+.ShowMovieListItem img {
+  width: 10em;
+  height: 10em;
+  border: 2px solid #333333;
+  border-radius: 15px;
+  transition: all 0.3s;
 }
 
-img {
-  width: 75%;
-  height: 75%;
+.ShowMovieListItem img:hover {
+  border: 2px solid #ed146f;
 }
 
 .ShowMovieListItem:hover {
-  background: #ffffff;
-  color: #333333;
+  color: #ed146f;
 }
 
-#movie1, #movie2, #movie3, #movie4 {grid-row-start: 4;}
-#movie5, #movie6, #movie7, #movie8 {grid-row-start: 8;}
-#movie9, #movie10, #movie11, #movie12 {grid-row-start: 12;}
-#movie13, #movie14, #movie15, #movie16 {grid-row-start: 16;}
-#movie17, #movie18, #movie19, #movie20 {grid-row-start: 20;}
+#movie1, #movie2, #movie3, #movie4 {grid-row-start: 5;}
+#movie5, #movie6, #movie7, #movie8 {grid-row-start: 12;}
+#movie9, #movie10, #movie11, #movie12 {grid-row-start: 19;}
+#movie13, #movie14, #movie15, #movie16 {grid-row-start: 26;}
+#movie17, #movie18, #movie19, #movie20 {grid-row-start: 33;}
 #movie1, #movie5, #movie9, #movie13, #movie17 {grid-column-start: 2;}
 #movie2, #movie6, #movie10, #movie14, #movie18 {grid-column-start: 6;}
 #movie3, #movie7, #movie11, #movie15, #movie19 {grid-column-start: 10;}
-#movie4, #movie8, #movie12, #movie16, #movie20 {grid-column-start: 14;} */
-/*===========================================================================*/
-
+#movie4, #movie8, #movie12, #movie16, #movie20 {grid-column-start: 14;}
