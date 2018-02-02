@@ -13,7 +13,7 @@ class FavoriteList extends Component {
     this.renderFavoriteList = this.renderFavoriteList.bind(this);
   }
   componentDidMount() {
-    console.log('inside componentDidMount')
+
     axios.get('/favorites')
       .then(res => {
         this.setState({
