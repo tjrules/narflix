@@ -60,7 +60,7 @@ class ShowMovie extends Component {
           <div>Genre: {this.renderGenres()}</div>
           <div>IMDB ID: {this.props.movie.imdb_id}</div>
           <div>Runtime: {this.props.movie.runtime} minutes</div>
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Add Movie!" />
           <input type="hidden" name="title" value="this.props.movie.title" />
           <input type="hidden" name="tagline" value="this.props.movie.tagline" />
           <input type="hidden" name="poster_path" value="this.props.movie.poster_path" />
