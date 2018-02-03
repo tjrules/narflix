@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import axios from 'axios';
-import {Redirect} from 'react-router-dom'; 
+import {Redirect} from 'react-router-dom';
 
 class FavoriteAdd extends Component {
   constructor() {
@@ -27,7 +27,7 @@ class FavoriteAdd extends Component {
 
   handleFormSubmit(e){
     e.preventDefault();
-    axios.post('/favorites', {
+    axios.post('/my-favorites', {
       title: this.state.title,
       poster_path:this.state.poster_path,
       overview: this.state.overview,

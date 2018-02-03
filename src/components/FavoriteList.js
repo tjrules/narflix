@@ -31,19 +31,19 @@ class FavoriteList extends Component {
     if(this.state.apiDataLoaded) {
       return this.state.apiData.map(movies => {
         return(
-
-          <UserFavorites key={movies.id} movies={movies} />
-      );
-    });
-  } else return <p>Loading . . . </p>
+        <UserFavorites key={movies.id} movies={movies} />
+      )
+    })
+    } else return <p>Loading . . . </p>
   }
+
 
 render() {
   return(
     <div className="FavoriteList">
       <div id="link2"><Link to='/add'>Add</Link></div>
       <h1>My Favorites List will be here </h1>
-      <div>{this.renderFavoriteList()}</div>
+      <Link to>{this.renderFavoriteList()}</Link>
     </div>
     )
   }

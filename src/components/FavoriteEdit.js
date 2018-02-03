@@ -20,7 +20,7 @@ class FavMovieEditForm extends Component {
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
- 
+
 
   componentDidMount() {
     axios.put(`/favorites/${this.props.match.params.id}`)
@@ -50,7 +50,7 @@ class FavMovieEditForm extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
     axios
-      .put(`/movies/${this.props.match.params.id}`, {
+      .put(`/my-favorites/${this.props.match.params.id}`, {
         title: this.state.title,
         imdb_id: this.state.imdb_id,
         overview: this.state.overview,
@@ -71,6 +71,7 @@ class FavMovieEditForm extends Component {
   }
 
   render() {
+    console.log(this.state)
     return (
       <div className="edit">
         <form onSubmit={this.handleFormSubmit}>
@@ -150,7 +151,7 @@ class FavMovieEditForm extends Component {
           ? <Redirect push to={`/favorites/${this.state.newId}`} />
           : ''}
       </div>
-    );
+    )
   }
 }
 
