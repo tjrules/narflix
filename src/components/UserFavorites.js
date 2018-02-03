@@ -9,8 +9,7 @@ const UserFavorites = (props) => {
       <h2>{props.movies.title}</h2>
       <p>Overview: {props.movies.overview}</p>
       <Link to={`/favorites/${props.movies.id}`}>See more</Link>
-      {/* <Link to={`/edit/${props.match.params.id}`}>Edit</Link> */}
-    </div> 
+    </div>
   )
 }
 
