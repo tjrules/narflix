@@ -27,7 +27,7 @@ class FavoriteAdd extends Component {
 
   handleFormSubmit(e){
     e.preventDefault();
-    axios.post('/my-favorites', {
+    axios.post('/favorites', {
       title: this.state.title,
       poster_path:this.state.poster_path,
       overview: this.state.overview,

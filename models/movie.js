@@ -28,7 +28,7 @@ Movie.create = (movies) => {
 };
 
 
-Movie.update = (goals, id) => {
+Movie.update = (movies, id) => {
   console.log("update working");
   return db.none(
   `
