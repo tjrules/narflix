@@ -24,7 +24,6 @@ moviesController.new = (req, res) => {
 };
 
 moviesController.create = (req, res) => {
-
  Movie.create({
      title: req.body.title,
      imdb_id: req.body.imdb_id,
@@ -45,7 +44,6 @@ moviesController.create = (req, res) => {
      console.log('ya messed it up, TJ', err)
      res.status(400).json(err);
    });
-
 };
 
 moviesController.show = (req, res) => {

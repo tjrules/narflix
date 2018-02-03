@@ -9,25 +9,44 @@ class ShowMovieList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieList: this.props.movieList
+      movieList: this.props.movieList,
+      genreId: this.props.genreId,
+      page: 1
     }
   }
 
   renderMovies() {
+    console.log(this.state.page);
     let divId = 1
     return this.state.movieList.map((movie, index) => {
       return (
         <div
           key={index}
           className="ShowMovieListItem"
-          id={`movie${divId}`}
+          id={`movie${divId++}`}
           onClick={() => this.handleClick(movie.id)}>
-          <div id={`title${divId}`}>{movie.title}</div>
-          <div id={`overview${divId}`} className="overview">{movie.overview}</div>
-          <img id={`img${divId++}`} src={`http://image.tmdb.org/t/p/w342${movie.backdrop_path}`}/>
+          <img src={`http://image.tmdb.org/t/p/w342${movie.backdrop_path}`}/>
+          <div>{movie.title}</div>
         </div>)
     })
   }
+
+  renderMoviesNext() {
+    console.log(this.state.page);
+    let divId = 1
+    return this.state.movieListNext.map((movie, index) => {
+      return (
+        <div
+          key={index}
+          className="ShowMovieListItem"
+          id={`movie${divId++}`}
+          onClick={() => this.handleClick(movie.id)}>
+          <img src={`http://image.tmdb.org/t/p/w342${movie.backdrop_path}`}/>
+          <div>{movie.title}</div>
+        </div>)
+    })
+  }
+
 
   handleClick(id) {
     fetch(`https://api.themoviedb.org/3/movie/${id}?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US`)
@@ -41,6 +60,35 @@ class ShowMovieList extends Component {
     })
   }
 
+  nextPage() {
+    let pageNumber = this.state.page + 1;
+    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${this.state.genreId}&language=en-US&page=${pageNumber}`)
+    .then(data => data.json())
+    .then(data => {
+      this.setState({
+        nextPage: true,
+        movieListNext: data.results,
+        movieList: false,
+        page: pageNumber
+      })
+    })
+  }
+
+  prevPage() {
+    if (this.state.page > 1) {
+      let pageNumber = this.state.page - 1;
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${this.state.genreId}&language=en-US&page=${pageNumber}`)
+      .then(data => data.json())
+      .then(data => {
+        this.setState({
+          nextPage: true,
+          movieListNext: data.results,
+          page: pageNumber
+        })
+      })
+    }
+  }
+
   render() {
     return (
       <div className="ShowMovieList">
@@ -49,7 +97,6 @@ class ShowMovieList extends Component {
         {this.state.movieListNext ? this.renderMoviesNext() : ""}
         <input id="next" className="button" type="button" onClick={() => this.nextPage()} value="Next" />
         <input id="previous" className="button" type="button" onClick={() => this.prevPage()} value="Prev" />
-
       </div>);
   }
 }
