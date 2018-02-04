@@ -11,6 +11,7 @@ class ShowMovieList extends Component {
     this.state = {
       movieList: this.props.movieList,
       genreId: this.props.genreId,
+      totalPages: this.props.totalPages,
       page: 1
     }
   }
@@ -61,17 +62,19 @@ class ShowMovieList extends Component {
   }
 
   nextPage() {
-    let pageNumber = this.state.page + 1;
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${this.state.genreId}&language=en-US&page=${pageNumber}`)
-    .then(data => data.json())
-    .then(data => {
-      this.setState({
-        nextPage: true,
-        movieListNext: data.results,
-        movieList: false,
-        page: pageNumber
+    if (this.state.page < this.state.totalPages) {
+      let pageNumber = this.state.page + 1;
+      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${this.state.genreId}&language=en-US&page=${pageNumber}`)
+      .then(data => data.json())
+      .then(data => {
+        this.setState({
+          nextPage: true,
+          movieListNext: data.results,
+          movieList: false,
+          page: pageNumber
+        })
       })
-    })
+    }
   }
 
   prevPage() {

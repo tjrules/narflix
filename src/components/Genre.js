@@ -37,6 +37,7 @@ class Genre extends Component {
       this.setState({
         genresList: false,
         movieList: data.results,
+        totalPages: data.total_pages,
         genreId: id
       })
     })
@@ -50,7 +51,7 @@ class Genre extends Component {
       <div className="Genres">
         {this.state.genresList ? <div id="pickgenre">Choose A Genre</div> : ""}
         {this.state.genresList ? this.state.genresList : ""}
-        {this.state.movieList ? <ShowMovieList movieList={this.state.movieList} genreId={this.state.genreId} /> : ""}
+        {this.state.movieList ? <ShowMovieList movieList={this.state.movieList} genreId={this.state.genreId} totalPages={this.state.totalPages} /> : ""}
     </div>);
   }
 }
