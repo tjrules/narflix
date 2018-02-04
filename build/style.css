@@ -15,7 +15,9 @@ header {
   background: #222222;
   position: fixed;
   top: 0;
-  left: 0; }
+  left: 0;
+  z-index: 1;
+}
 
 .logo, header>div {
   display: flex;
@@ -27,6 +29,49 @@ header {
   font-size: 3vw;
   font-variant: small-caps;
   font-weight: 800;
+}
+
+.Home {
+  display: grid;
+  width: 100vw;
+  grid-template: 75px / 25% 25% repeat(4, 1fr);
+  background: #222222;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.Search {
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Search > form {
+  grid-area: 1 / 2 / span 1 / span 1;
+  font-size: 1vw;
+}
+
+#text, #submit {
+  background: #333333;
+  color: #ffffff;
+  height: 2.75vw;
+  font-size: 1em;
+  margin: 0;
+}
+
+#text {
+  border: 1px solid #333333;
+  width: 15vw;
+}
+
+#submit {
+  border-radius: 10px;
+  transition: all 0.3s;
+}
+#submit:hover {
+  background: #ffffff;
+  color: #333333;
 }
 
 header>div {
@@ -63,6 +108,8 @@ a:hover {
   height: 100vh;
   width: 100vw;
   grid-template: 75px repeat(6, 1fr) / repeat(10, 1fr);
+  position: absolute;
+  overflow: scroll;
 }
 
 #pickgenre {
@@ -135,7 +182,7 @@ textarea {
   border-radius: 5px;
 }
 
-.ShowMovieList {
+.ShowMovieList, .SearchResults {
   display: grid;
   height: 100vh;
   width: 100vw;
@@ -164,7 +211,14 @@ textarea {
   grid-area: 3 / 12 / span 1 / span 3;
 }
 
-.ShowMovieListItem {
+.SearchResults {
+  position: absolute;
+  left: 0;
+  top: 75px;
+  overflow: scroll;
+}
+
+.ShowMovieListItem, .SearchResultItem {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -176,7 +230,7 @@ textarea {
   cursor: pointer;
 }
 
-.ShowMovieListItem img {
+.ShowMovieListItem img, .SearchResultItem img {
   width: 200px;
   height: 100%;
   border: 2px solid #ffffff;
@@ -184,11 +238,11 @@ textarea {
   transition: all 0.3s;
 }
 
-.ShowMovieListItem img:hover {
+.ShowMovieListItem img:hover, .SearchResultItem img:hover {
   border: 2px solid #ed146f;
 }
 
-.ShowMovieListItem:hover {
+.ShowMovieListItem:hover, .SearchResultItem:hover {
   color: #ed146f;
 }
 

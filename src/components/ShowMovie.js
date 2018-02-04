@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ShowMovieList from './ShowMovieList';
+import SearchResults from './SearchResults'
 import axios from 'axios';
 
 class ShowMovie extends Component {

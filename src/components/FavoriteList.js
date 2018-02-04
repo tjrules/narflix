@@ -4,6 +4,7 @@ import axios from 'axios';
 import UserFavorites from './UserFavorites';
 import { Link } from 'react-router-dom';
 import Header from './Header';
+import Search from './Search';
 
 class FavoriteList extends Component {
   constructor() {
@@ -43,6 +44,7 @@ render() {
   return(
     <div>
       <Header />
+      <Search />
       <div className="FavoriteList">
         <div id="addFavorite"><Link to='/add'>Add</Link></div>
         <div id="favoriteHeader">My Watch List</div>
