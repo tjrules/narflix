@@ -18,9 +18,9 @@ class Search extends React.Component {
     axios.get(`https://api.themoviedb.org/3/search/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US&query=${this.state.name}`)
     .then(data => {
       this.setState({
-        results: data.data.results
+        results: data.data.results,
+        totalPages: data.data.total_pages
       })
-      console.log(data.data.results)
     })
     .catch(err => console.log(data, err))
     e.target.reset()
@@ -40,7 +40,7 @@ class Search extends React.Component {
           <input id="text" type="text" name="name" onChange={this.handleChange} required />
           <input id="submit" type="submit" value="Search" onClick={this.props.take}/>
         </form>
-        {this.state.results ? <SearchResults results={this.state.results}/> : ""}
+        {this.state.results ? <SearchResults results={this.state.results} searchQuery={this.state.name} totalPages={this.state.totalPages} /> : ""}
       </div>
     )
   }

@@ -1,3 +1,5 @@
+//thing
+
 import React, {Component} from 'react';
 import Search from './Search';
 import ShowMovie from './ShowMovie';
@@ -8,12 +10,13 @@ class SearchResults extends Component {
     super(props);
     this.state = {
       movieList: this.props.results,
+      searchQuery: this.props.searchQuery,
+      totalPages: this.props.totalPages,
       page: 1
     }
   }
 
   renderMovies() {
-    console.log(this.state.page);
     let divId = 1
     return this.state.movieList.map((movie, index) => {
       return (
@@ -29,7 +32,6 @@ class SearchResults extends Component {
   }
 
   renderMoviesNext() {
-    console.log(this.state.page);
     let divId = 1
     return this.state.movieListNext.map((movie, index) => {
       return (
@@ -58,23 +60,25 @@ class SearchResults extends Component {
   }
 
   nextPage() {
-    let pageNumber = this.state.page + 1;
-    fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${this.state.genreId}&language=en-US&page=${pageNumber}`)
-    .then(data => data.json())
-    .then(data => {
-      this.setState({
-        nextPage: true,
-        movieListNext: data.results,
-        movieList: false,
-        page: pageNumber
+    if (this.state.page < this.state.totalPages) {
+      let pageNumber = this.state.page + 1;
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US&query=${this.state.searchQuery}&page=${pageNumber}`)
+      .then(data => data.json())
+      .then(data => {
+        this.setState({
+          nextPage: true,
+          movieListNext: data.results,
+          movieList: false,
+          page: pageNumber
+        })
       })
-    })
+    }
   }
 
   prevPage() {
     if (this.state.page > 1) {
       let pageNumber = this.state.page - 1;
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${this.state.genreId}&language=en-US&page=${pageNumber}`)
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US&query=${this.state.searchQuery}&page=${pageNumber}`)
       .then(data => data.json())
       .then(data => {
         this.setState({
