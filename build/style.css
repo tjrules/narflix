@@ -160,6 +160,10 @@ textarea {
 #next {grid-area: 3 / 10 / span 1 / span 1;}
 #previous {grid-area: 3 / 8 / span 1 / span 1;}
 
+#pageNumber {
+  grid-area: 3 / 12 / span 1 / span 3;
+}
+
 .ShowMovieListItem {
   display: flex;
   justify-content: center;

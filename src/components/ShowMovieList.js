@@ -92,6 +92,7 @@ class ShowMovieList extends Component {
   render() {
     return (
       <div className="ShowMovieList">
+        {this.state.movieList || this.state.movieListNext ? <div id="pageNumber">Page: {this.state.page}</div> : ""}
         {this.state.movieList ? this.renderMovies() : ""}
         {this.state.movieListNext ? this.renderMoviesNext() : ""}
         {this.state.movieList || this.state.movieListNext ? <input id="next" className="button" type="button" onClick={() => this.nextPage()} value="⇨" /> : ""}
