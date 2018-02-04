@@ -5,8 +5,8 @@ import axios from 'axios';
 import { Redirect } from 'react-router-dom';
 
 class FavMovieEditForm extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       title: '',
       imdb_id: '',
@@ -15,6 +15,7 @@ class FavMovieEditForm extends Component {
       runtime: '',
       tagline: '',
       genres: '',
+      newId: '',
       fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
@@ -23,18 +24,18 @@ class FavMovieEditForm extends Component {
 
 
   componentDidMount() {
-    axios.put(`/favorites/${this.props.match.params.id}`)
+    axios.get(`/favorites/${this.props.match.params.id}/edit`)
       .then((res) => {
-        console.log(res);
+        console.log(res.data.data);
         const favMovies = res.data.data;
         this.setState({
-          title: fav,
-          imdb_id: '',
-          overview: '',
-          poster_path: '',
-          runtime: '',
-          tagline: '',
-          genres: '',
+          title: favMovies.title,
+          imdb_id: favMovies.imdb_id,
+          overview: favMovies.overview,
+          poster_path: favMovies.poster_path,
+          runtime: favMovies.runtime,
+          tagline: favMovies.tagline,
+          genres: favMovies.genres,
         })
       }).catch(err => console.log(err));
   }
@@ -71,10 +72,11 @@ class FavMovieEditForm extends Component {
   }
 
   render() {
+    // console.log(props)
     console.log(this.state)
     return (
       <div className="edit">
-        <form onSubmit={this.handleFormSubmit}>
+        <form onSubmit={() => this.handleFormSubmit}>
           <label>
             Title
             <input

@@ -1,5 +1,6 @@
 import React from 'react';
-import UserFavorites from './UserFavorites'
+import UserFavorites from './UserFavorites';
+import axios from 'axios';
 
 class FavoriteMovie extends React.Component {
   constructor(props){

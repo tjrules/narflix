@@ -30,8 +30,10 @@ class FavoriteList extends Component {
 
     if(this.state.apiDataLoaded) {
       return this.state.apiData.map(movies => {
+        console.log(movies)
         return(
         <UserFavorites key={movies.id} movies={movies} />
+
       )
     })
     } else return <p>Loading . . . </p>
@@ -43,7 +45,7 @@ render() {
     <div className="FavoriteList">
       <div id="link2"><Link to='/add'>Add</Link></div>
       <h1>My Favorites List will be here </h1>
-      <Link to>{this.renderFavoriteList()}</Link>
+      {this.renderFavoriteList()}
     </div>
     )
   }

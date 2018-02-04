@@ -25,11 +25,11 @@ class App extends Component {
           <Route path='/login' component={UserLoginPage} />
           <Route path='/register' component={UserSignUpPage} />
           <Route path='/favorites' component={FavoriteList} />
+          <Route path='/:id/edit' component={FavoriteEdit}/>
           <Route path='/favorites/:id' component={FavoriteMovie} />
           <Route path='/movies' component={ShowMovieList} />
           <Route path='/movies/:id' component={ShowMovie} />
           <Route path='/add' component={FavoriteAdd}/>
-          <Route path='/:id/edit' component={FavoriteEdit}/>
           <Route path='/' component={Home}/>
         </Switch>
       </div>

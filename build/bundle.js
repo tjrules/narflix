@@ -1153,80 +1153,6 @@ var createPath = exports.createPath = function createPath(location) {
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactRouterDom = __webpack_require__(7);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-//header
-var Header = function Header() {
-  return _react2.default.createElement(
-    'div',
-    { className: 'Header' },
-    _react2.default.createElement(
-      'header',
-      null,
-      _react2.default.createElement(
-        'div',
-        { className: 'logo' },
-        'Narflix'
-      ),
-      _react2.default.createElement(
-        'div',
-        { id: 'link1' },
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/' },
-          'Home'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { id: 'link2' },
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/favorites' },
-          'Watch List'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { id: 'link3' },
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/login' },
-          'Login'
-        )
-      ),
-      _react2.default.createElement(
-        'div',
-        { id: 'link4' },
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: '/register' },
-          'Sign Up'
-        )
-      )
-    )
-  );
-};
-
-exports.default = Header;
-
-/***/ }),
-/* 14 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
 /* WEBPACK VAR INJECTION */(function(process) {/**
  * Copyright (c) 2013-present, Facebook, Inc.
  *
@@ -1247,7 +1173,7 @@ module.exports = emptyObject;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 15 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1316,7 +1242,7 @@ module.exports = warning;
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(2)))
 
 /***/ }),
-/* 16 */
+/* 15 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -1410,6 +1336,80 @@ var locationsAreEqual = exports.locationsAreEqual = function locationsAreEqual(a
 };
 
 /***/ }),
+/* 16 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(7);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+//header
+var Header = function Header() {
+  return _react2.default.createElement(
+    'div',
+    { className: 'Header' },
+    _react2.default.createElement(
+      'header',
+      null,
+      _react2.default.createElement(
+        'div',
+        { className: 'logo' },
+        'Narflix'
+      ),
+      _react2.default.createElement(
+        'div',
+        { id: 'link1' },
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: '/' },
+          'Home'
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { id: 'link2' },
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: '/favorites' },
+          'Watch List'
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { id: 'link3' },
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: '/login' },
+          'Login'
+        )
+      ),
+      _react2.default.createElement(
+        'div',
+        { id: 'link4' },
+        _react2.default.createElement(
+          _reactRouterDom.Link,
+          { to: '/register' },
+          'Sign Up'
+        )
+      )
+    )
+  );
+};
+
+exports.default = Header;
+
+/***/ }),
 /* 17 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -1427,7 +1427,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 if (process.env.NODE_ENV !== 'production') {
   var invariant = __webpack_require__(10);
-  var warning = __webpack_require__(15);
+  var warning = __webpack_require__(14);
   var ReactPropTypesSecret = __webpack_require__(18);
   var loggedTypeFailures = {};
 }
@@ -3593,7 +3593,7 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRouterDom = __webpack_require__(7);
 
-var _deleteMovie = __webpack_require__(114);
+var _deleteMovie = __webpack_require__(111);
 
 var _deleteMovie2 = _interopRequireDefault(_deleteMovie);
 
@@ -3626,7 +3626,7 @@ var UserFavorites = function UserFavorites(props) {
       ),
       _react2.default.createElement(
         _reactRouterDom.Link,
-        { to: '/' + props.movies.id + '/edit' },
+        { to: '/' + props.movies.id + '/edit', movies: props.movies },
         'Edit this Movie'
       )
     )
@@ -3824,7 +3824,7 @@ _reactDom2.default.render(_react2.default.createElement(_App2.default, null), do
 var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
 
 var m = __webpack_require__(9),
-    n = __webpack_require__(14),
+    n = __webpack_require__(13),
     p = __webpack_require__(6),
     q = "function" === typeof Symbol && Symbol["for"],
     r = q ? Symbol["for"]("react.element") : 60103,
@@ -3957,9 +3957,9 @@ if (process.env.NODE_ENV !== "production") {
     'use strict';
 
     var _assign = __webpack_require__(9);
-    var emptyObject = __webpack_require__(14);
+    var emptyObject = __webpack_require__(13);
     var invariant = __webpack_require__(10);
-    var warning = __webpack_require__(15);
+    var warning = __webpack_require__(14);
     var emptyFunction = __webpack_require__(6);
     var checkPropTypes = __webpack_require__(17);
 
@@ -5366,7 +5366,7 @@ var aa = __webpack_require__(0),
     ea = __webpack_require__(31),
     fa = __webpack_require__(32),
     ia = __webpack_require__(33),
-    D = __webpack_require__(14);
+    D = __webpack_require__(13);
 function E(a) {
   for (var b = arguments.length - 1, c = "Minified React error #" + a + "; visit http://facebook.github.io/react/docs/error-decoder.html?invariant\x3d" + a, d = 0; d < b; d++) {
     c += "\x26args[]\x3d" + encodeURIComponent(arguments[d + 1]);
@@ -7404,7 +7404,7 @@ module.exports = isNode;
  *
  * This source code is licensed under the MIT license found in the
  * LICENSE file in the root directory of this source tree.
- */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(0);var invariant=__webpack_require__(10);var warning=__webpack_require__(15);var ExecutionEnvironment=__webpack_require__(28);var _assign=__webpack_require__(9);var emptyFunction=__webpack_require__(6);var EventListener=__webpack_require__(29);var getActiveElement=__webpack_require__(30);var shallowEqual=__webpack_require__(31);var containsNode=__webpack_require__(32);var focusNode=__webpack_require__(33);var emptyObject=__webpack_require__(14);var checkPropTypes=__webpack_require__(17);var hyphenateStyleName=__webpack_require__(56);var camelizeStyleName=__webpack_require__(58);/**
+ */var _typeof=typeof Symbol==="function"&&typeof Symbol.iterator==="symbol"?function(obj){return typeof obj;}:function(obj){return obj&&typeof Symbol==="function"&&obj.constructor===Symbol&&obj!==Symbol.prototype?"symbol":typeof obj;};if(process.env.NODE_ENV!=="production"){(function(){'use strict';var React=__webpack_require__(0);var invariant=__webpack_require__(10);var warning=__webpack_require__(14);var ExecutionEnvironment=__webpack_require__(28);var _assign=__webpack_require__(9);var emptyFunction=__webpack_require__(6);var EventListener=__webpack_require__(29);var getActiveElement=__webpack_require__(30);var shallowEqual=__webpack_require__(31);var containsNode=__webpack_require__(32);var focusNode=__webpack_require__(33);var emptyObject=__webpack_require__(13);var checkPropTypes=__webpack_require__(17);var hyphenateStyleName=__webpack_require__(56);var camelizeStyleName=__webpack_require__(58);/**
  * WARNING: DO NOT manually require this module.
  * This is a replacement for `invariant(...)` used by the error code system
  * and will _only_ be required by the corresponding babel pass.
@@ -10559,7 +10559,7 @@ var _UserSignUpPage = __webpack_require__(108);
 
 var _UserSignUpPage2 = _interopRequireDefault(_UserSignUpPage);
 
-var _Header = __webpack_require__(13);
+var _Header = __webpack_require__(16);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -10571,7 +10571,7 @@ var _FavoriteList = __webpack_require__(110);
 
 var _FavoriteList2 = _interopRequireDefault(_FavoriteList);
 
-var _FavoriteEdit = __webpack_require__(111);
+var _FavoriteEdit = __webpack_require__(112);
 
 var _FavoriteEdit2 = _interopRequireDefault(_FavoriteEdit);
 
@@ -10587,11 +10587,11 @@ var _ShowMovie = __webpack_require__(47);
 
 var _ShowMovie2 = _interopRequireDefault(_ShowMovie);
 
-var _FavoriteMovie = __webpack_require__(112);
+var _FavoriteMovie = __webpack_require__(113);
 
 var _FavoriteMovie2 = _interopRequireDefault(_FavoriteMovie);
 
-var _Home = __webpack_require__(113);
+var _Home = __webpack_require__(114);
 
 var _Home2 = _interopRequireDefault(_Home);
 
@@ -10627,11 +10627,11 @@ var App = function (_Component) {
             _react2.default.createElement(_reactRouterDom.Route, { path: '/login', component: _UserLoginPage2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/register', component: _UserSignUpPage2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/favorites', component: _FavoriteList2.default }),
+            _react2.default.createElement(_reactRouterDom.Route, { path: '/:id/edit', component: _FavoriteEdit2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/favorites/:id', component: _FavoriteMovie2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/movies', component: _ShowMovieList2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/movies/:id', component: _ShowMovie2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/add', component: _FavoriteAdd2.default }),
-            _react2.default.createElement(_reactRouterDom.Route, { path: '/:id/edit', component: _FavoriteEdit2.default }),
             _react2.default.createElement(_reactRouterDom.Route, { path: '/', component: _Home2.default })
           )
         )
@@ -10755,7 +10755,7 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var emptyFunction = __webpack_require__(6);
 var invariant = __webpack_require__(10);
-var warning = __webpack_require__(15);
+var warning = __webpack_require__(14);
 var assign = __webpack_require__(9);
 
 var ReactPropTypesSecret = __webpack_require__(18);
@@ -13234,7 +13234,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.createPath = exports.parsePath = exports.locationsAreEqual = exports.createLocation = exports.createMemoryHistory = exports.createHashHistory = exports.createBrowserHistory = undefined;
 
-var _LocationUtils = __webpack_require__(16);
+var _LocationUtils = __webpack_require__(15);
 
 Object.defineProperty(exports, 'createLocation', {
   enumerable: true,
@@ -13303,7 +13303,7 @@ var _invariant = __webpack_require__(5);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(16);
+var _LocationUtils = __webpack_require__(15);
 
 var _PathUtils = __webpack_require__(12);
 
@@ -13627,7 +13627,7 @@ var _invariant = __webpack_require__(5);
 
 var _invariant2 = _interopRequireDefault(_invariant);
 
-var _LocationUtils = __webpack_require__(16);
+var _LocationUtils = __webpack_require__(15);
 
 var _PathUtils = __webpack_require__(12);
 
@@ -13966,7 +13966,7 @@ var _warning2 = _interopRequireDefault(_warning);
 
 var _PathUtils = __webpack_require__(12);
 
-var _LocationUtils = __webpack_require__(16);
+var _LocationUtils = __webpack_require__(15);
 
 var _createTransitionManager = __webpack_require__(24);
 
@@ -14718,7 +14718,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRouterDom = __webpack_require__(7);
 
-var _Header = __webpack_require__(13);
+var _Header = __webpack_require__(16);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -15680,7 +15680,7 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRouterDom = __webpack_require__(7);
 
-var _Header = __webpack_require__(13);
+var _Header = __webpack_require__(16);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -16048,6 +16048,7 @@ var FavoriteList = function (_Component) {
 
       if (this.state.apiDataLoaded) {
         return this.state.apiData.map(function (movies) {
+          console.log(movies);
           return _react2.default.createElement(_UserFavorites2.default, { key: movies.id, movies: movies });
         });
       } else return _react2.default.createElement(
@@ -16076,11 +16077,7 @@ var FavoriteList = function (_Component) {
           null,
           'My Favorites List will be here '
         ),
-        _react2.default.createElement(
-          _reactRouterDom.Link,
-          { to: true },
-          this.renderFavoriteList()
-        )
+        this.renderFavoriteList()
       );
     }
   }]);
@@ -16092,6 +16089,30 @@ exports.default = FavoriteList;
 
 /***/ }),
 /* 111 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var deleteMovie = function deleteMovie(props) {
+
+  return _react2.default.createElement("div", { className: "deleteMovie" });
+};
+
+exports.default = deleteMovie;
+
+/***/ }),
+/* 112 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16126,10 +16147,10 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var FavMovieEditForm = function (_Component) {
   _inherits(FavMovieEditForm, _Component);
 
-  function FavMovieEditForm() {
+  function FavMovieEditForm(props) {
     _classCallCheck(this, FavMovieEditForm);
 
-    var _this = _possibleConstructorReturn(this, (FavMovieEditForm.__proto__ || Object.getPrototypeOf(FavMovieEditForm)).call(this));
+    var _this = _possibleConstructorReturn(this, (FavMovieEditForm.__proto__ || Object.getPrototypeOf(FavMovieEditForm)).call(this, props));
 
     _this.state = {
       title: '',
@@ -16139,6 +16160,7 @@ var FavMovieEditForm = function (_Component) {
       runtime: '',
       tagline: '',
       genres: '',
+      newId: '',
       fireRedirect: false
     };
     _this.handleInputChange = _this.handleInputChange.bind(_this);
@@ -16151,17 +16173,17 @@ var FavMovieEditForm = function (_Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      _axios2.default.put('/favorites/' + this.props.match.params.id).then(function (res) {
-        console.log(res);
+      _axios2.default.get('/favorites/' + this.props.match.params.id + '/edit').then(function (res) {
+        console.log(res.data.data);
         var favMovies = res.data.data;
         _this2.setState({
-          title: fav,
-          imdb_id: '',
-          overview: '',
-          poster_path: '',
-          runtime: '',
-          tagline: '',
-          genres: ''
+          title: favMovies.title,
+          imdb_id: favMovies.imdb_id,
+          overview: favMovies.overview,
+          poster_path: favMovies.poster_path,
+          runtime: favMovies.runtime,
+          tagline: favMovies.tagline,
+          genres: favMovies.genres
         });
       }).catch(function (err) {
         return console.log(err);
@@ -16202,13 +16224,18 @@ var FavMovieEditForm = function (_Component) {
   }, {
     key: 'render',
     value: function render() {
+      var _this4 = this;
+
+      // console.log(props)
       console.log(this.state);
       return _react2.default.createElement(
         'div',
         { className: 'edit' },
         _react2.default.createElement(
           'form',
-          { onSubmit: this.handleFormSubmit },
+          { onSubmit: function onSubmit() {
+              return _this4.handleFormSubmit;
+            } },
           _react2.default.createElement(
             'label',
             null,
@@ -16306,7 +16333,7 @@ var FavMovieEditForm = function (_Component) {
 exports.default = FavMovieEditForm;
 
 /***/ }),
-/* 112 */
+/* 113 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16325,6 +16352,10 @@ var _react2 = _interopRequireDefault(_react);
 var _UserFavorites = __webpack_require__(46);
 
 var _UserFavorites2 = _interopRequireDefault(_UserFavorites);
+
+var _axios = __webpack_require__(8);
+
+var _axios2 = _interopRequireDefault(_axios);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -16354,7 +16385,7 @@ var FavoriteMovie = function (_React$Component) {
     value: function componentDidMount() {
       var _this2 = this;
 
-      axios.get('/favorites').then(function (res) {
+      _axios2.default.get('/favorites').then(function (res) {
         _this2.setState({
           apiDataLoaded: true,
           apiData: res.data.movies
@@ -16384,7 +16415,7 @@ var FavoriteMovie = function (_React$Component) {
 exports.default = FavoriteMovie;
 
 /***/ }),
-/* 113 */
+/* 114 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -16400,7 +16431,7 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _Header = __webpack_require__(13);
+var _Header = __webpack_require__(16);
 
 var _Header2 = _interopRequireDefault(_Header);
 
@@ -16441,30 +16472,6 @@ var Home = function (_React$Component) {
 }(_react2.default.Component);
 
 exports.default = Home;
-
-/***/ }),
-/* 114 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-
-var _react = __webpack_require__(0);
-
-var _react2 = _interopRequireDefault(_react);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-var deleteMovie = function deleteMovie(props) {
-
-  return _react2.default.createElement("div", { className: "deleteMovie" });
-};
-
-exports.default = deleteMovie;
 
 /***/ })
 /******/ ]);
