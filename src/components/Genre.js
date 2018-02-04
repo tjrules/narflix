@@ -48,6 +48,7 @@ class Genre extends Component {
   render() {
     return (
       <div className="Genres">
+        {this.state.genresList ? <div id="pickgenre">Choose A Genre</div> : ""}
         {this.state.genresList ? this.state.genresList : ""}
         {this.state.movieList ? <ShowMovieList movieList={this.state.movieList} genreId={this.state.genreId} /> : ""}
     </div>);

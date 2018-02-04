@@ -24,8 +24,8 @@ class App extends Component {
           <Route path='/login' component={UserLoginPage} />
           <Route path='/register' component={UserSignUpPage} />
           <Route path='/my-favorites' component={FavoriteList} />
-          <Route path='/movies' component={ShowMovieList} />
           <Route path='/movies/:id' component={ShowMovie} />
+          <Route path='/movies' component={ShowMovieList} />
           <Route path='/add' component={FavoriteAdd}/>
           <Route path='/edit/:id' component={FavoriteEdit}/>
           <Route path='/' component={Home}/>
