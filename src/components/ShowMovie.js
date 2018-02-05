@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import { Redirect } from 'react-router-dom';
 import ShowMovieList from './ShowMovieList';
 import SearchResults from './SearchResults'
 import axios from 'axios';
@@ -60,6 +61,9 @@ class ShowMovie extends Component {
         <form onSubmit={this.handleSubmit}>
           <input type="submit" value="Add Movie"/>
         </form>
+        {this.state.fireRedirect
+          ? <Redirect to={`/favorites/${this.state.newId}`} />
+        : '' }
       </div>)
   }
 }

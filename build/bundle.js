@@ -2533,6 +2533,8 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
+var _reactRouterDom = __webpack_require__(6);
+
 var _ShowMovieList = __webpack_require__(28);
 
 var _ShowMovieList2 = _interopRequireDefault(_ShowMovieList);
@@ -2673,7 +2675,8 @@ var ShowMovie = function (_Component) {
           'form',
           { onSubmit: this.handleSubmit },
           _react2.default.createElement('input', { type: 'submit', value: 'Add Movie' })
-        )
+        ),
+        this.state.fireRedirect ? _react2.default.createElement(_reactRouterDom.Redirect, { to: '/favorites/' + this.state.newId }) : ''
       );
     }
   }]);
