@@ -30,7 +30,7 @@ Movie.create = (movies) => {
 
 Movie.update = (movies, id) => {
   console.log("update working");
-  return db.none(
+  return db.oneOrNone(
   `
     UPDATE movies SET
     title = $1,
@@ -39,10 +39,12 @@ Movie.update = (movies, id) => {
     poster_path = $4,
     runtime = $5,
     tagline = $6,
-    genres = $7
-    WHERE id = $8
+    genres = $7,
+    user_id = $8
+    WHERE id = $9
+    RETURNING *
   `,
-  [movies.title, movies.imdb_id, movies.overview, movies.poster_path, movies.runtime, movies.tagline, movies.genres, movies.user_id]
+  [movies.title, movies.imdb_id, movies.overview, movies.poster_path, movies.runtime, movies.tagline, movies.genres, movies.user_id, id]
     );
 };
 

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-
 import axios from 'axios';
 
 import { Redirect } from 'react-router-dom';
@@ -15,14 +14,27 @@ class FavMovieEditForm extends Component {
       runtime: '',
       tagline: '',
       genres: '',
-      newId: '',
       fireRedirect: false,
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
   }
 
-
+componentDidMount() {
+  axios.get(`/favorites/${this.props.match.params.id}`)
+  .then((res) =>{
+    const favorites = res.data.movies;
+    this.setState({
+      title: favorites.title,
+      imdb_id: favorites.imdb_id,
+      overview: favorites.overview,
+      poster_path: favorites.poster_path,
+      runtime: favorites.runtime,
+      tagline: favorites.tagline,
+      genres: favorites.genres
+    })
+  }).catch(err => console.log(err));
+}
 
 
   handleInputChange(e) {
@@ -36,19 +48,19 @@ class FavMovieEditForm extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
     axios
-      .post(`/favorites/${this.props.match.params.id}`, {
-        title: this.props.movie.title,
-        imdb_id: this.props.movie.imdb_id,
-        overview: this.props.movie.overview,
-        poster_path: this.props.movie.poster_path,
-        runtime: this.props.movie.runtime,
-        tagline: this.props.movie.tagline,
-        genres: this.props.movie.genres,
+      .put(`/favorites/${this.props.match.params.id}`, {
+        title: this.state.title,
+        imdb_id: this.state.imdb_id,
+        overview: this.state.overview,
+        poster_path: this.state.poster_path,
+        runtime: this.state.runtime,
+        tagline: this.state.tagline,
+        genres: this.state.genres,
       })
       .then(res => {
         console.log(res);
         this.setState({
-          newId: res.data.data.id,
+          fireRedirect: true
         });
       })
       .catch(err => console.log(err));
@@ -60,7 +72,7 @@ class FavMovieEditForm extends Component {
     console.log(this.state)
     return (
       <div className="edit">
-        <form onSubmit={() => this.handleFormSubmit}>
+        <form onSubmit={this.handleFormSubmit}>
           <label>
             Title
             <input

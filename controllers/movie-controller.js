@@ -84,13 +84,16 @@ moviesController.update = (req, res) => {
      runtime: req.body.runtime,
      tagline: req.body.tagline,
      genres: req.body.genres,
+     user_id: req.user.id
    }, req.params.id)
    .then( movies => {
-    console.log('this is supposed to work Update Controller')
-     res.redirect(`favorites/${req.params.id}`)
+    console.log('this is supposed to work Update Controller', movies)
+     res.json({
+       movies
+     })
    })
    .catch(err => {
-    console.log('this is not working Update Controller')
+    console.log('this is not working Update Controller', err)
      res.status(400).json(err);
    });
 };
