@@ -1,29 +1,28 @@
-//show movie list
+//thing
 
 import React, {Component} from 'react';
-import Genre from './Genre';
+import Search from './Search';
 import ShowMovie from './ShowMovie';
 
 
-class ShowMovieList extends Component {
+class SearchResults extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      movieList: this.props.movieList,
-      genreId: this.props.genreId,
+      movieList: this.props.results,
+      searchQuery: this.props.searchQuery,
       totalPages: this.props.totalPages,
       page: 1
     }
   }
 
   renderMovies() {
-    console.log(this.state.page);
     let divId = 1
     return this.state.movieList.map((movie, index) => {
       return (
         <div
           key={index}
-          className="ShowMovieListItem"
+          className="SearchResultItem"
           id={`movie${divId++}`}
           onClick={() => this.handleClick(movie.id)}>
           <img src={`http://image.tmdb.org/t/p/w342${movie.backdrop_path}`}/>
@@ -33,13 +32,12 @@ class ShowMovieList extends Component {
   }
 
   renderMoviesNext() {
-    console.log(this.state.page);
     let divId = 1
     return this.state.movieListNext.map((movie, index) => {
       return (
         <div
           key={index}
-          className="ShowMovieListItem"
+          className="SearchResultItem"
           id={`movie${divId++}`}
           onClick={() => this.handleClick(movie.id)}>
           <img src={`http://image.tmdb.org/t/p/w342${movie.backdrop_path}`}/>
@@ -64,7 +62,7 @@ class ShowMovieList extends Component {
   nextPage() {
     if (this.state.page < this.state.totalPages) {
       let pageNumber = this.state.page + 1;
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${this.state.genreId}&language=en-US&page=${pageNumber}`)
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US&query=${this.state.searchQuery}&page=${pageNumber}`)
       .then(data => data.json())
       .then(data => {
         this.setState({
@@ -80,7 +78,7 @@ class ShowMovieList extends Component {
   prevPage() {
     if (this.state.page > 1) {
       let pageNumber = this.state.page - 1;
-      fetch(`https://api.themoviedb.org/3/discover/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&with_genres=${this.state.genreId}&language=en-US&page=${pageNumber}`)
+      fetch(`https://api.themoviedb.org/3/search/movie?api_key=a14b5a9649dfd4d14567efe27afe8ab4&language=en-US&query=${this.state.searchQuery}&page=${pageNumber}`)
       .then(data => data.json())
       .then(data => {
         this.setState({
@@ -94,7 +92,7 @@ class ShowMovieList extends Component {
 
   render() {
     return (
-      <div className="ShowMovieList">
+      <div className="SearchResults">
         {this.state.movieList || this.state.movieListNext ? <div id="pageNumber">Page: {this.state.page}</div> : ""}
         {this.state.movieList ? this.renderMovies() : ""}
         {this.state.movieListNext ? this.renderMoviesNext() : ""}
@@ -105,4 +103,4 @@ class ShowMovieList extends Component {
   }
 }
 
-export default ShowMovieList;
+export default SearchResults;

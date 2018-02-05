@@ -3,6 +3,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import UserFavorites from './UserFavorites';
 import { Link } from 'react-router-dom';
+import Header from './Header';
+import Search from './Search';
 
 class FavoriteList extends Component {
   constructor() {
@@ -35,15 +37,19 @@ class FavoriteList extends Component {
           <UserFavorites key={movies.id} movies={movies} />
       );
     });
-  } else return <p>Loading . . . </p>
+  } else return <p>Your list is empty</p>
   }
 
 render() {
   return(
-    <div className="FavoriteList">
-      <div id="link2"><Link to='/add'>Add</Link></div>
-      <h1>My Favorites List will be here </h1>
-      <div>{this.renderFavoriteList()}</div>
+    <div>
+      <Header />
+      <Search />
+      <div className="FavoriteList">
+        <div id="addFavorite"><Link to='/add'>Add</Link></div>
+        <div id="favoriteHeader">My Watch List</div>
+        <div id="favoriteListItem">{this.renderFavoriteList()}</div>
+      </div>
     </div>
     )
   }
