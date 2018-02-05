@@ -86,9 +86,11 @@ moviesController.update = (req, res) => {
      genres: req.body.genres,
    }, req.params.id)
    .then( movies => {
+    console.log('this is supposed to work Update Controller')
      res.redirect(`favorites/${req.params.id}`)
    })
    .catch(err => {
+    console.log('this is not working Update Controller')
      res.status(400).json(err);
    });
 };

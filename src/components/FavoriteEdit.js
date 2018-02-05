@@ -51,7 +51,7 @@ class FavMovieEditForm extends Component {
   handleFormSubmit(e) {
     e.preventDefault();
     axios
-      .put(`/favorites/${this.props.match.params.id}`, {
+      .post(`/favorites/${this.props.match.params.id}`, {
         title: this.state.title,
         imdb_id: this.state.imdb_id,
         overview: this.state.overview,
@@ -64,7 +64,6 @@ class FavMovieEditForm extends Component {
         console.log(res);
         this.setState({
           newId: res.data.data.id,
-          fireRedirect: true,
         });
       })
       .catch(err => console.log(err));
