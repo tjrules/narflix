@@ -306,8 +306,7 @@ span {color: #ed146f;}
 .FavoriteList {
   display: grid;
   width: 100vw;
-  height: 100vh;
-  grid-template: 75px repeat(2, 10%) 1fr / repeat(3, 1fr);
+  grid-template: 45px repeat(2, 3em) 1fr / repeat(3, 1fr);
   font-size: 2vw;
 }
 
@@ -327,19 +326,27 @@ span {color: #ed146f;}
 
 #favoriteListItem {
   grid-area: 4 / 1 / span 18 / span 3;
-  display: flex;
-  justify-content: space-around;
-  align-items: flex-start;
-  flex-wrap: wrap;
+  display: grid;
+  width: 100vw;
+  grid-template: 1fr / repeat(3, 1fr);
 }
 
 .user-fav {
-  margin-bottom: 6%
+  margin: 5%;
 }
 
-.user-fav > img {
-  width: 75%;
-  height: 75%;
+.user-fav > form > h2 {
+  color: #ed146f;
+}
+
+.user-fav > form > p {
+  overflow: scroll;
+  height: 10vw;
+}
+
+.user-fav > form > img {
+  width: 10em;
+  height: 14em;
   border: 2px solid #ffffff;
   border-radius: 15px;
 }
