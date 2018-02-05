@@ -14,15 +14,13 @@ class FavoriteMovie extends Component {
   }
 
   componentDidMount() {
-    setTimeout(() => {
-        axios.get(`/favorites/${this.props.match.params.id}`)
+    axios.get(`/favorites/${this.props.match.params.id}`)
       .then(res => {
         this.setState({
           apiDataLoaded:true,
           movie: res.data.data
         })
       }).catch(err => console.log(err))
-    },1250)
   }
 
   deleteMovie() {

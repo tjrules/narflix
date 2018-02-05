@@ -23,22 +23,7 @@ class FavMovieEditForm extends Component {
   }
 
 
-  componentDidMount() {
-    axios.get(`/favorites/${this.props.match.params.id}/edit`)
-      .then((res) => {
-        console.log(res.data.data);
-        const favMovies = res.data.data;
-        this.setState({
-          title: favMovies.title,
-          imdb_id: favMovies.imdb_id,
-          overview: favMovies.overview,
-          poster_path: favMovies.poster_path,
-          runtime: favMovies.runtime,
-          tagline: favMovies.tagline,
-          genres: favMovies.genres,
-        })
-      }).catch(err => console.log(err));
-  }
+
 
   handleInputChange(e) {
     const name = e.target.name;
@@ -52,13 +37,13 @@ class FavMovieEditForm extends Component {
     e.preventDefault();
     axios
       .post(`/favorites/${this.props.match.params.id}`, {
-        title: this.state.title,
-        imdb_id: this.state.imdb_id,
-        overview: this.state.overview,
-        poster_path: this.state.poster_path,
-        runtime: this.state.runtime,
-        tagline: this.state.tagline,
-        genres: this.state.genres,
+        title: this.props.movie.title,
+        imdb_id: this.props.movie.imdb_id,
+        overview: this.props.movie.overview,
+        poster_path: this.props.movie.poster_path,
+        runtime: this.props.movie.runtime,
+        tagline: this.props.movie.tagline,
+        genres: this.props.movie.genres,
       })
       .then(res => {
         console.log(res);

@@ -37,7 +37,7 @@ class FavoriteList extends Component {
         <UserFavorites key={movies.id} movies={movies} />
 
 
-         
+
       );
     });
   } else return <p>Your list is empty</p>
@@ -47,12 +47,6 @@ class FavoriteList extends Component {
 
 render() {
   return(
-    {*/<<<<<< update
-    <div className="FavoriteList">
-      <div id="link2"><Link to='/add'>Add</Link></div>
-      <h1>My Favorites List will be here </h1>
-      {this.renderFavoriteList()}
-/*}
     <div>
       <Header />
       <Search />
