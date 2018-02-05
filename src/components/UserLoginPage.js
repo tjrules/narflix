@@ -46,23 +46,21 @@ class UserLoginPage extends Component {
   render() {
     console.log(this.state)
     return (
-      <div className='form'>
-      <Header />
-      {(this.state.loggedInName) ? <h1>Welcome, {this.state.loggedInName}</h1> : <h1>Please Log In</h1>}
+      <div className='sign-in'>
+
+        <Header />
+
+        {(this.state.loggedInName) ? <div id="welcome">Welcome, {this.state.loggedInName}</div> : <div id="log-in">Please Log In</div>}
+
         <form onSubmit={this.handleSubmit}>
-        <label>
-          username
-          <input type='text' onChange={this.handleChange} name='username' placeholder='write your username' />
-        </label>
-        <br />
-        <label>
-          password
-          <input type='text' onChange={this.handleChange} name='password' placeholder='write your password' />
-        </label>
-        <br />
-          <input type='submit' value='get em done' />
+          <input type='text' onChange={this.handleChange} name='username' placeholder='username' />
+          <br />
+          <input type='text' onChange={this.handleChange} name='password' placeholder='password' />
+          <br />
+          <input type='submit' value='Sign In' />
         </form>
-        { this.state.fireRedirect ? <Redirect to='/' /> : '' }
+
+        {this.state.fireRedirect ? <Redirect to='/' /> : ''}
       </div>
     )
   }

@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import ShowMovieList from './ShowMovieList';
+import SearchResults from './SearchResults'
 import axios from 'axios';
 
 class ShowMovie extends Component {
@@ -46,19 +47,20 @@ class ShowMovie extends Component {
   }
 
   render() {
-    return (<div className="ShowMovie">
-        <div>{this.props.movie.title}</div>
-        <div>Tagline: {this.props.movie.tagline}</div>
-        <img src={`http://image.tmdb.org/t/p/w342${this.props.movie.poster_path}`}/>
-        <div>Overview: {this.props.movie.overview}</div>
-        <div>Genre: {this.renderGenres()}</div>
-        <div>IMDB ID: {this.props.movie.imdb_id}</div>
-        <div>Runtime: {this.props.movie.runtime}
-          minutes</div>
-      <form onSubmit={this.handleSubmit}>
-        <input type="submit" value="Add Movie"/>
-      </form>
-    </div>)
+    return (
+      <div className="ShowMovie">
+        <div id="title">{this.props.movie.title}</div>
+        <div id="tagline"><span>{this.props.movie.tagline}</span></div>
+        <img id="img" src={`http://image.tmdb.org/t/p/w342${this.props.movie.poster_path}`}/>
+        <div id="overview">{this.props.movie.overview}</div>
+        <div id="genre"><span>Genre(s):</span>{this.renderGenres()}</div>
+        <div id="imdbid"><span>IMDB ID: </span><br />{this.props.movie.imdb_id}</div>
+        <div id="runtime"><span>Runtime: </span><br />{this.props.movie.runtime} minutes</div>
+
+        <form onSubmit={this.handleSubmit}>
+          <input type="submit" value="Add Movie"/>
+        </form>
+      </div>)
   }
 }
 

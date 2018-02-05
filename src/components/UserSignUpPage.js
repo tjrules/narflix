@@ -52,28 +52,30 @@ class UserSignUpPage extends Component {
   render() {
     console.log(this.state)
     return (
-      <div className='form'>
-      <Header />
-      <h1>Welcome! Join Narflix Here</h1>
+      <div className='sign-up'>
+        <Header />
+
+        <div id="join">Welcome! Join Narflix Here</div>
+
         <form onSubmit={this.handleSubmit}>
-        <label>
-          Email
-          <input type='text' onChange={this.handleChange} name='email' placeholder='write your Email here' />
-        </label>
-        <br />
-        <label>
-          Username
-          <input type='text' onChange={this.handleChange} name='username' placeholder='write your Username here' />
-        </label>
-        <br />
-        <label>
-          Password
-          <input type='text' onChange={this.handleChange} name='password' placeholder='write your Password here' />
-        </label>
-        <br />
-          <input type='submit' value='Submit' />
+
+          <input type='text' onChange={this.handleChange} name='email' placeholder='email' />
+
+          <br />
+
+          <input type='text' onChange={this.handleChange} name='username' placeholder='username' />
+
+          <br />
+
+          <input type='text' onChange={this.handleChange} name='password' placeholder='password' />
+
+          <br />
+
+          <input type='submit' value='Sign Up' />
         </form>
-        { this.state.fireRedirect ? <Redirect to='/' /> : '' }
+
+        {this.state.fireRedirect ? <Redirect to='/' /> : ''}
+
       </div>
       )
   }

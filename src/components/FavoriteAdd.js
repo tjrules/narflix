@@ -2,6 +2,9 @@ import React, {Component} from 'react';
 import axios from 'axios';
 import {Redirect} from 'react-router-dom';
 
+import Header from './Header';
+
+
 class FavoriteAdd extends Component {
   constructor() {
     super();
@@ -50,56 +53,61 @@ class FavoriteAdd extends Component {
   render(){
     return(
       <div className="add">
+
+        <Header />
+
+        <div id="add-entry">Add an entry</div>
+
         <form onSubmit={this.handleFormSubmit}>
-          <label>Title</label>
-            <input
-              type="text"
-              placeholder="Title"
-              name="title"
-              value={this.state.title}
-              onChange={this.handleInputChange}
-            />
-          <label>Poster</label>
-            <input
-              type="text"
-              placeholder="Poster URL"
-              name="poster_path"
-              value={this.state.poster_path}
-              onChange={this.handleInputChange}
-            />
-          <label>Overview</label>
-            <input
-              type="text"
-              placeholder="Overview"
-              name="overview"
-              value={this.state.overview}
-              onChange={this.handleInputChange}
-            />
-          <label>Tagline</label>
-            <input
-              type="text"
-              placeholder="Tagline"
-              name="tagline"
-              value={this.state.tagline}
-              onChange={this.handleInputChange}
-            />
-          <label>Genre</label>
-            <input
-              type="text"
-              placeholder="Genre"
-              name="genres"
-              value={this.state.genres}
-              onChange={this.handleInputChange}
-            />
-          <label>Run Time</label>
-            <input
-              type="number"
-              placeholder="Run Time"
-              name="runtime"
-              value={this.state.runtime}
-              onChange={this.handleInputChange}
-            />
-            <input type="submit" value="submit" />
+          <input
+            type="text"
+            placeholder="Title"
+            name="title"
+            value={this.state.title}
+            onChange={this.handleInputChange}
+          />
+          <br />
+          <input
+            type="text"
+            placeholder="Poster URL"
+            name="poster_path"
+            value={this.state.poster_path}
+            onChange={this.handleInputChange}
+          />
+          <br />
+          <textarea
+            type="text"
+            name="overview"
+            placeholder="Overview"
+            value={this.state.overview}
+            onChange={this.handleInputChange}>
+          </textarea>
+          <br />
+          <textarea
+            type="text"
+            placeholder="Tagline"
+            name="tagline"
+            value={this.state.tagline}
+            onChange={this.handleInputChange}>
+          </textarea>
+          <br />
+          <input
+            type="text"
+            placeholder="Genre"
+            name="genres"
+            value={this.state.genres}
+            onChange={this.handleInputChange}
+          />
+          <br />
+          <input
+            type="number"
+            placeholder="Run Time"
+            name="runtime"
+            value={this.state.runtime}
+            onChange={this.handleInputChange}
+          />
+          <br />
+          <input type="submit" value="Submit" />
         </form>
         {this.state.fireRedirect
           ? <Redirect to={`/my-favorites/${this.state.newId}`} />
