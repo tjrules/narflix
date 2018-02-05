@@ -22,7 +22,7 @@ class Home extends React.Component {
     return(
       <div className="Home">
         <Header />
-        <Search take={this.search} noSearch={this.state.noSearch}/>
+        <Search searchMethod={this.search} noSearch={this.state.noSearch}/>
         {this.state.noSearch ? <Genre /> : ""}
       </div>
     )
