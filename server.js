@@ -49,4 +49,4 @@ app.use('/auth', require('./routes/auth-routes'))
 app.listen(PORT, () => {
   console.log(`check us out on PORT ${PORT}`)
 })
- 
+

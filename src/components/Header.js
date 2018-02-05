@@ -10,7 +10,7 @@ const Header = () => {
         <header>
           <div className='logo'>Narflix</div>
           <div id="link1"><Link to='/'>Home</Link></div>
-          <div id="link2"><Link to='/my-favorites'>Watch List</Link></div>
+          <div id="link2"><Link to='/favorites'>Watch List</Link></div>
           <div id="link3"><Link to='/login'>Login</Link></div>
           <div id="link4"><Link to='/register'>Sign Up</Link></div>
         </header>

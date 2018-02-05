@@ -12,7 +12,7 @@ Movie.findAll = id => {
 
 
 Movie.findById = id => {
-  return db.oneOrNone(`SELECT * FROM movies WHERE id = $1`, [id])
+  return db.oneOrNone(`SELECT * FROM movies WHERE id = $1`,[id]);
 };
 
 Movie.create = (movies) => {
@@ -28,7 +28,7 @@ Movie.create = (movies) => {
 };
 
 
-Movie.update = (goals, id) => {
+Movie.update = (movies, id) => {
   console.log("update working");
   return db.none(
   `

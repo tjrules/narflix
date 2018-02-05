@@ -3,15 +3,15 @@ const Movie = require('../models/movie');
 const moviesController = {};
 
 moviesController.index = (req, res) => {
- console.log('inside movie index', req.user)
+ // console.log('inside movie index', req.user)
  Movie.findAll(req.user.id)
    .then(movies => {
-     console.log('this is movies', movies)
+     // console.log('this is movies', movies)
      res.json({
        message: 'jase is the greatest',
        movies
      })
-   console.log('this is movies',movies)
+   // console.log('this is movies',movies)
    })
    .catch(err => {
      console.log(err);
@@ -49,10 +49,12 @@ moviesController.create = (req, res) => {
 moviesController.show = (req, res) => {
  Movie.findById(req.params.id)
    .then(movies => {
-     // console.log(moviescontrollershow);
-     res.render(`movies/show`, { movies:movies })
+     console.log('show controller working');
+     res.json({ movies:movies })
    })
    .catch(err => {
+    console.log('why is show controller is not working')
+    console.log(req.params)
      res.status(400).json(err);
    });
 };
@@ -61,11 +63,13 @@ moviesController.show = (req, res) => {
 moviesController.edit = (req,res) => {
  Movie.findById(req.params.id)
    .then(movies => {
-     res.render(`movies/edit`, {
-       movies:movies,
+    console.log('edit this is controller')
+     res.json({
+      data:movies,
      })
    })
    .catch(err => {
+    console.log('controller is not working')
      res.status(400).json(err)
    })
 }
@@ -82,9 +86,11 @@ moviesController.update = (req, res) => {
      genres: req.body.genres,
    }, req.params.id)
    .then( movies => {
-     res.redirect(`${req.params.id}`)
+    console.log('this is supposed to work Update Controller')
+     res.redirect(`favorites/${req.params.id}`)
    })
    .catch(err => {
+    console.log('this is not working Update Controller')
      res.status(400).json(err);
    });
 };
