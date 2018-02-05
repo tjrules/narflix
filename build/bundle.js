@@ -16511,6 +16511,10 @@ var _axios2 = _interopRequireDefault(_axios);
 
 var _reactRouterDom = __webpack_require__(6);
 
+var _Header = __webpack_require__(9);
+
+var _Header2 = _interopRequireDefault(_Header);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
@@ -16616,100 +16620,73 @@ var FavMovieEditForm = function (_Component) {
       console.log(this.state);
       return _react2.default.createElement(
         'div',
-        { className: 'edit' },
+        { className: 'FavoriteEdit' },
+        _react2.default.createElement(_Header2.default, null),
+        _react2.default.createElement(
+          'div',
+          { id: 'edit' },
+          'Edit Entry'
+        ),
         _react2.default.createElement(
           'form',
           { onSubmit: this.handleFormSubmit },
-          _react2.default.createElement(
-            'label',
-            null,
-            'Title',
-            _react2.default.createElement('input', {
-              type: 'text',
-              placeholder: 'Title',
-              name: 'title',
-              value: this.state.title,
-              onChange: this.handleInputChange
-            })
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
-            'IMDB id',
-            _react2.default.createElement('input', {
-              type: 'text',
-              placeholder: 'IMDB id',
-              name: 'imdb_id',
-              value: this.state.imdb_id,
-              onChange: this.handleInputChange
-            })
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
-            'Overview',
-            _react2.default.createElement('input', {
-              type: 'text',
-              placeholder: 'Overview',
-              name: 'overview',
-              value: this.state.overview,
-              onChange: this.handleInputChange
-            })
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
-            'Poster url',
-            _react2.default.createElement('input', {
-              type: 'text',
-              placeholder: 'Poster url',
-              name: 'poster_path',
-              value: this.state.poster_path,
-              onChange: this.handleInputChange
-            })
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
-            'Runtime',
-            _react2.default.createElement('input', {
-              type: 'number',
-              placeholder: 'Runtime',
-              name: 'runtime',
-              value: this.state.runtime,
-              onChange: this.handleInputChange
-            })
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
-            'Tagline',
-            _react2.default.createElement('input', {
-              type: 'text',
-              placeholder: 'Tagline',
-              name: 'tagline',
-              value: this.state.tagline,
-              onChange: this.handleInputChange
-            })
-          ),
-          _react2.default.createElement(
-            'label',
-            null,
-            'Genres',
-            _react2.default.createElement('input', {
-              type: 'text',
-              placeholder: 'Genres',
-              name: 'genres',
-              value: this.state.genres,
-              onChange: this.handleInputChange
-            })
-          ),
+          _react2.default.createElement('input', {
+            type: 'text',
+            placeholder: 'Title',
+            name: 'title',
+            value: this.state.title,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', {
+            type: 'text',
+            placeholder: 'IMDB id',
+            name: 'imdb_id',
+            value: this.state.imdb_id,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('textarea', {
+            type: 'text',
+            placeholder: 'Overview',
+            name: 'overview',
+            value: this.state.overview,
+            onChange: this.handleInputChange }),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', {
+            type: 'text',
+            placeholder: 'Poster url',
+            name: 'poster_path',
+            value: this.state.poster_path,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', {
+            type: 'number',
+            placeholder: 'Runtime',
+            name: 'runtime',
+            value: this.state.runtime,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('textarea', {
+            type: 'text',
+            placeholder: 'Tagline',
+            name: 'tagline',
+            value: this.state.tagline,
+            onChange: this.handleInputChange }),
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', {
+            type: 'text',
+            placeholder: 'Genres',
+            name: 'genres',
+            value: this.state.genres,
+            onChange: this.handleInputChange
+          }),
+          _react2.default.createElement('br', null),
           _react2.default.createElement('input', { type: 'submit', value: 'Submit!' }),
-          _react2.default.createElement(
-            'button',
-            { className: 'delete', onClick: this.deleteMovie },
-            'Delete'
-          )
+          _react2.default.createElement('br', null),
+          _react2.default.createElement('input', { type: 'submit', className: 'delete', onClick: this.deleteMovie, value: 'Delete' })
         ),
         this.state.fireRedirect ? _react2.default.createElement(_reactRouterDom.Redirect, { push: true, to: '/favorites/' + this.state.newId }) : ''
       );
