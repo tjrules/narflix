@@ -110,7 +110,7 @@ class FavoriteAdd extends Component {
           <input type="submit" value="Submit" />
         </form>
         {this.state.fireRedirect
-          ? <Redirect to={`/my-favorites/${this.state.newId}`} />
+          ? <Redirect to={`/favorites/${this.state.newId}`} />
         : '' }
 
       </div>
