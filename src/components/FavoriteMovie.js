@@ -16,9 +16,10 @@ class FavoriteMovie extends Component {
   componentDidMount() {
     axios.get(`/favorites/${this.props.match.params.id}`)
       .then(res => {
+        console.log('got this back',res)
         this.setState({
           apiDataLoaded:true,
-          movie: res.data.data
+          movie: res.data.movies
         })
       }).catch(err => console.log(err))
   }
@@ -37,14 +38,13 @@ class FavoriteMovie extends Component {
       return (
         <div className='inner'>
           <div className='img'>
-            <img src={this.state.movie.poster_path} alt={this.state.Movie.title} />
+            <img src={this.state.movie.poster_path} alt={this.state.movie.title} />
           </div>
           <div className='info'>
-            <h1>{this.state.Movie.tagline}</h1>
-            <p>{this.state.Movie.overview}</p>
+            <h1>{this.state.movie.tagline}</h1>
+            <p>{this.state.movie.overview}</p>
             <div className='links'>
               <Link to={`/edit/${this.props.match.params.id}`}>Edit</Link>
-              <span className='delete' onClick={this.deleteMovie}>Delete</span>
                {this.state.fireRedirect
                 ? <Redirect push to="/favorites" /> : ''}
             </div>
@@ -55,6 +55,7 @@ class FavoriteMovie extends Component {
     else  return <p className='loading'>Loading...</p>
   }
    render() {
+    console.log('rendered', this.state)
     return (
       <div className='Movie-single'>
         {this.renderMovieOrLoading()}

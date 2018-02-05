@@ -13,8 +13,8 @@ class UserFavoritesTwo extends React.Component {
           <img src={`http://image.tmdb.org/t/p/w342${props.movies.poster_path}`} alt="{props.movies.title}" />
           <h2>{props.movies.title}</h2>
           <p>Overview: {props.movies.overview}</p>
-          <Link to={`/favorites/${props.movies.id}`}>See more</Link>
-          <Link to={`/${props.movies.id}/edit`}>Edit this Movie</Link>
+          <Link to={`/${props.movies.id}/`}>See more</Link>
+          <Link to={`/movies/${props.movies.id}/edit`}>Edit this Movie</Link>
         </form>
       </div>
     )

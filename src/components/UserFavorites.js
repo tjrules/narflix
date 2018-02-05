@@ -12,8 +12,8 @@ const UserFavorites = (props) => {
         <h2>{props.movies.title}</h2>
         <p>Overview: {props.movies.overview}</p>
 
-      <Link to={`/favorites/${props.movies.id}`}>See more</Link>
-      <Link to={`/edit/${props.movies.id}`} moves={props.movies}>Edit</Link>
+        <Link to={`/favorites/${props.movies.id}`}>See more</Link>
+        <Link to={`/edit/${props.movies.id}`} moves={props.movies}>Edit</Link>
       </form>
     </div>
   )
