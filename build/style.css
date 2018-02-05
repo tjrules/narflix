@@ -145,14 +145,14 @@ a:hover {
 #genre16, #genre17, #genre18, #genre19 {grid-row-start: 6;}
 #genre16 {grid-column-start: 2;}
 
-.sign-in, .sign-up, .add {
+.sign-in, .sign-up, .add, .FavoriteEdit {
   display: grid;
   grid-template: 75px 2vw 4vw 1fr / repeat(3, 1fr);
   height: 100vh;
   width: 100vw;
 }
 
-#log-in, #join, #add-entry {
+#log-in, #join, #add-entry, #edit {
   grid-area: 3 / 1 / span 1 / span 3;
   display: flex;
   justify-content: center;
@@ -160,7 +160,7 @@ a:hover {
   font-size: 3vw;
 }
 
-.sign-in > form, .sign-up > form, .add > form {
+.sign-in > form, .sign-up > form, .add > form, .FavoriteEdit > form {
   grid-area: 4 / 2 / span 1 / span 1;
   display: flex;
   justify-content: flex-start;
@@ -168,7 +168,7 @@ a:hover {
   flex-direction: column;
 }
 
-.sign-in > form > input, .sign-up > form > input, .add > form > input {
+.sign-in > form > input, .sign-up > form > input, .add > form > input, .FavoriteEdit > form > input {
   width: 16vw;
   height: 3vw;
   font-size: 2vw;
