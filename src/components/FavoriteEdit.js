@@ -18,6 +18,7 @@ class FavMovieEditForm extends Component {
     };
     this.handleInputChange = this.handleInputChange.bind(this);
     this.handleFormSubmit = this.handleFormSubmit.bind(this);
+    this.deleteMovie = this.deleteMovie.bind(this)
   }
 
 componentDidMount() {
@@ -36,6 +37,14 @@ componentDidMount() {
   }).catch(err => console.log(err));
 }
 
+  deleteMovie() {
+    axios.delete(`/favorites/${this.props.match.params.id}`)
+    .then(res => {
+      this.setState({
+        fireRedirect:true
+      })
+    }).catch(err => { console.log(err)})
+  }
 
   handleInputChange(e) {
     const name = e.target.name;
@@ -144,7 +153,9 @@ componentDidMount() {
             />
           </label>
           <input type="submit" value="Submit!" />
+          <button className='delete' onClick={this.deleteMovie}>Delete</button>
         </form>
+
         {this.state.fireRedirect
           ? <Redirect push to={`/favorites/${this.state.newId}`} />
           : ''}
