@@ -1,8 +1,8 @@
 {
-  "name": "project-3-prompt",
+  "name": "unit-4-final-project",
   "version": "1.0.0",
-  "description": "![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) # Project #3: Building Your Own React App & Express API",
-  "main": "server.js",
+  "description": "",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
@@ -11,7 +11,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git.generalassemb.ly/tjrules/PROJECT-3-PROMPT.git"
+    "url": "https://git.generalassemb.ly/damark726/Unit-4-Final-Project-Restart.git"
   },
   "author": "",
   "license": "ISC",
