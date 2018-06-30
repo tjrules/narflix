@@ -53,7 +53,7 @@ moviesController.show = (req, res) => {
      res.json({ movies:movies })
    })
    .catch(err => {
-    console.log('why is show controller is not working')
+    console.log('why is show controller not working')
     console.log(req.params)
      res.status(400).json(err);
    });
